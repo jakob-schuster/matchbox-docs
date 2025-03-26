@@ -23,7 +23,7 @@ cargo build --release
 
 *matchbox* takes in reads, in FASTA, FASTQ, SAM or BAM formats. If no file path is given, *matchbox* expects to receive reads from stdin.
 
-*matchbox* also requires a configuration script, written in the *matchbox* scripting language, as a `.mb` file. This script will tell *matchbox* how to process your reads.
+*matchbox* also requires a configuration script, written in the *matchbox* scripting language as a `.mb` file. This script will tell *matchbox* how to process your reads.
 
 ```bash
 ./target/release/matchbox -s my_script.mb reads.fq
