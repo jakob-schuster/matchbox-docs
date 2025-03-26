@@ -4,12 +4,12 @@ name: Zola on GitHub Pages
 on: 
  push:
   branches:
-   - original
+   - main
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/original'
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout main
         uses: actions/checkout@v4
