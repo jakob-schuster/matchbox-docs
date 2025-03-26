@@ -13,7 +13,11 @@ jobs:
     steps:
     - name: Checkout main
       uses: actions/checkout@v4
-    - name: Build and deploy
+    - name: Build only
       uses: shalzz/zola-deploy-action@v0.20.0
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BUILD_DIR: docs
+        BUILD_ONLY: true
+        BUILD_FLAGS: --drafts
+        # A GitHub token is not necessary when BUILD_ONLY is true
+        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
