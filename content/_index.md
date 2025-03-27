@@ -26,7 +26,7 @@ cargo build --release
 *matchbox* also requires a configuration script, written in the *matchbox* scripting language as a `.mb` file. This script will tell *matchbox* how to process your reads.
 
 ```bash
-./target/release/matchbox -s my_script.mb reads.fq
+matchbox -s my_script.mb reads.fq
 ```
 
 ### Paired-end reads
@@ -34,7 +34,7 @@ cargo build --release
 If your reads are paired-end, the `--paired-with` parameter can be used.
 
 ```bash
-./target/release/matchbox -s my_script.mb read1.fq.gz --paired-with read2.fq.gz
+matchbox -s my_script.mb read1.fq.gz --paired-with read2.fq.gz
 ```
 
 ### Error tolerance
@@ -43,8 +43,8 @@ When performing pattern-matching, *matchbox* tolerates insertions, deletions and
 
 ```bash
 # 15% error rate
-./target/release/matchbox -s my_script.mb reads.fq -e 0.15
+matchbox -s my_script.mb reads.fq -e 0.15
 
 # 0% error rate (only search for exact matches)
-./target/release/matchbox -s my_script.mb reads.fq -e 0
+matchbox -s my_script.mb reads.fq -e 0
 ```

@@ -8,6 +8,8 @@
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="base" content="{{ config.base_url | safe }}" />
+
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta
       name="description"
@@ -15,6 +17,9 @@
       content="{{config.description}}"
     />
     <link rel="stylesheet" href="{{ get_url(path='styles.css') | safe }}" />
+    <!-- <script defer type="module" src="{{ get_url(path='tinysearch_engine.js'   , trailing_slash=false, cachebust=true) | safe }}"{%- if integrity %} integrity="sha384-{{ get_hash(path='tinysearch_engine.js'   , sha_type=384, base64=true) | safe }}"{%- endif %}></script> -->
+    <script defer type="module" src="{{ get_url(path='js/tinysearch.js'   , trailing_slash=false, cachebust=true) | safe }}"{%- if integrity %} integrity="sha384-{{ get_hash(path='js/tinysearch.js'   , sha_type=384, base64=true) | safe }}"{%- endif %}></script>
+
   </head>
 
   <body>
@@ -38,6 +43,22 @@
             <small>jakob-schuster/matchbox</small></a
           ></p
         >
+
+        <!-- <div>
+          {%- if config.build_search_index %}
+          {%- set icon_search=config.extra.icon_search | default(value="svgs svgm search") %}
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="{%- if icon_search -%}{{ icon_search }}{%- else -%}si{%- endif -%}">{%- if not icon_search -%}&#8981;{%- endif -%}</button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+          {%- endif %}
+        </div> -->
+
 
         <h2>Navigation</h2>
         <nav role="navigation">
