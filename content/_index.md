@@ -1,14 +1,24 @@
 +++
 title = "Quick start"
-sort_by = "title"
+sort_by = "weight"
 template = "index.html"
 +++
 
-Welcome to the official user documentation for *matchbox*, a flexible preprocessor for FASTA/FASTQ/SAM/BAM files.
+Welcome to the official user documentation for *matchbox*, a flexible processor for FASTA/FASTQ/SAM/BAM files.
+
+You could use *matchbox* for:
+- Validating the presence of primers and the structure of your reads
+- Quantifying and filtering out sequencing artefacts
+- Demultiplexing, even for complex read structures
+
+<!-- 
+[Recipes](/recipes/) contains plenty of example scripts to get started with *matchbox*.
+
+[Reference](/reference/) is an in-depth reference for the *matchbox* scripting language, including a list of the built-in functions. -->
 
 ## Installation
 
-To install *matchbox*, clone the GitHub repo and build it using cargo. More accessible distribution coming soon!
+Clone the GitHub repo and build it using cargo. More accessible distribution coming soon!
 
 ```bash
 git clone https://github.com/jakob-schuster/matchbox.git
@@ -39,7 +49,7 @@ matchbox -s my_script.mb read1.fq.gz --paired-with read2.fq.gz
 
 ### Error tolerance
 
-When performing pattern-matching, *matchbox* tolerates insertions, deletions and substitutions. The global error rate is used for all sequences. 
+When performing pattern-matching, *matchbox* tolerates insertions, deletions and substitutions. The global error rate is used for all sequences.
 
 ```bash
 # 15% error rate
@@ -48,3 +58,43 @@ matchbox -s my_script.mb reads.fq -e 0.15
 # 0% error rate (only search for exact matches)
 matchbox -s my_script.mb reads.fq -e 0
 ```
+
+<!-- ### Scripting language
+
+
+<table>
+<tr>
+<td>Quick, simple queries</td>
+<td>
+
+```matchbox
+read.seq.len().average!()
+```
+
+</td>
+</tr>
+<tr>
+<td>Powerful pattern matching</td>
+<td>
+
+```matchbox
+if read is [_ primer umi:|10| _] =>
+    read.tag('umi={umi.seq}')
+        .out!('processed.fq')
+```
+
+</td>
+</tr>
+<tr>
+<td>Complex demultiplexing</td>
+<td>
+
+```matchbox
+if read is [_ b1.seq linker b2.seq _] 
+    for b1, b2 in csv('barcodes.tsv') =>
+        read.out!('{b1.seq}_{b2.seq}.fq')
+```
+
+</td>
+</tr>
+</table> -->

@@ -1,0 +1,91 @@
+%YAML 1.2
+---
+name: Matchbox
+file_extensions: [mb]
+scope: source.mb
+
+contexts:
+  main:
+    - include: other
+  
+  other:
+    - clear_scopes: true
+
+    - match: '\b[0-9]+(\.[0-9]*)?\b'
+      scope: constant.numeric
+
+    - match: \btrue\b|\bfalse\b
+      scope: constant.language
+
+    - match: '[A-Za-z_][A-Za-z_0-9\!]*\('
+      scope: entity.name.function
+      push: function_parameters
+
+    - match: \b(if)\b|\b(is)\b|\b(matches)\b|=>|\[|\]|\b(for)\b|\b(in)\b|\b(describe)\b|\b(then)\b|\b(else)\b
+      scope: keyword.other
+
+    - match: '>|<|\+|-|\.|\|>|\*|/|^|%|and|or|not'
+      scope: keyword.operator
+
+    # - match: '\.[A-Za-z_\!]*\b'
+      # scope: entity.name.tag
+
+    - match: '\b[ACTG]+\b'
+      scope: constant.numeric
+
+    - match: ':|='
+      scope: keyword.operator.assignment
+
+    - match: \bread\b
+      scope: markup.bold
+
+    - match: \'
+      push: string
+    
+    - match: \{
+      scope: constant.character.escape
+      push: group
+    
+    - match: \||_
+      scope: constant.numeric
+
+    - match: '\b[A-Za-z_0-9]+\b'
+      scope: variable
+
+    - match: '#'
+      scope: comment.block
+      push: comment
+
+  string:
+    - meta_scope: string.quoted
+    - match: \{
+      scope: constant.character.escape
+      push: format_string
+    
+    - match: \'
+      pop: true
+  
+  format_string:
+    - clear_scopes: true
+    - include: other
+    - match: \}
+      scope: constant.character.escape
+      pop: true
+    
+  function_parameters:
+    - include: other
+
+    - match: '\)'
+      scope: entity.name.function
+      pop: true
+    
+  group:
+    - include: other
+    - match: \}
+      scope: constant.character.escape
+      pop: true
+
+  comment:
+    - meta_scope: comment.block
+    - match: '\n'
+      pop: true

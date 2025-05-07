@@ -1,6 +1,7 @@
 +++
 title = "Reference"
-sort_by = "date"
+sort_by = "weight"
+weight = 1
 template = "blog.html"
 +++
 
