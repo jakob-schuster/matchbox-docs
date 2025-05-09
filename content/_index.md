@@ -7,9 +7,10 @@ template = "index.html"
 Welcome to the official user documentation for *matchbox*, a flexible processor for FASTA/FASTQ/SAM/BAM files.
 
 You could use *matchbox* for:
-- Validating the presence of primers and the structure of your reads
+- Quick, error-tolerant searches for primers and known sequences
+- Validating the structure of your reads
 - Quantifying and filtering out sequencing artefacts
-- Demultiplexing, even for complex read structures
+- Demultiplexing even the most complex barcoding schemes
 
 <!-- 
 [Recipes](/recipes/) contains plenty of example scripts to get started with *matchbox*.

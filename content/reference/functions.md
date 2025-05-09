@@ -1,77 +1,30 @@
 +++
-title = "Functions"
+title = "Function list"
 template = "page.html"
 weight = 3
 +++
 
-*matchbox* functions are used to manipulate and transform data.
+Functions are used to manipulate and transform data. Most of the time, users will be applying built-in *matchbox* functions. This list includes every built-in function with examples.
 
-## Defining functions
 
-New functions can be defined using function literal syntax. Arguments must be declared with their types, in parentheses, separated by commas. The body of the function comes after an arrow `=>`. The function's return type is inferred from its body.
-
-Variable names can be assigned to functions, just like any other value.
-
-```matchbox
-# a function that  numbers
-f = (n1: Num, n2: Num) => n1 * 3
-
-# a function which formats the result of f into a Str
-g = (n: Num) => '{n} times two equals {f(n)}'
-```
-
-## Applying functions
-
-A function can be applied by writing the function name followed by parentheses enclosing a comma-separated list of arguments.
-
-```matchbox
-n = len(read.seq)
-```
-
-Alternatively, a function can be applied with the first argument in front and a dot before the function name. All of the remaining arguments are still written inside the parentheses.
-
-```matchbox
-# equivalent
-n = read.seq.len()
-```
-
-Similarly, the pipe operator `|>` can also be used to apply functions.
-
-```matchbox
-# also equivalent
-n = read.seq |> len()
-
-# useful when chaining functions together!
-read 
-    |> tag('length={len(read.seq)}') 
-    |> out!('file.fq')
-```
-
----
-
-# Built-in functions
-
-Most of the time, users will be applying built-in *matchbox* functions.
-
-This list explains every built-in function with examples.
+<br>
+<br>
 
 ---
 
 <div class="function_block">
 
-## `len(): `<code class="type">Num</code>
+## `len: `<code class="type">Num</code>
 
 Calculates the length of a string.
 
-<table>
-<th>Parameter</th>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
 <th>Description</th>
 <tr>
 <td><code>s: </code><code class="type">Str</code></td><td>The string to calculate the length of.</td>
 </tr>
 </table>
-
-**Example**
 
 ```matchbox
 # get the average read length
@@ -80,16 +33,54 @@ read.seq.len().average!()
 
 </div>
 
+<br>
+<br>
+
 ---
 
 <div class="function_block">
 
-## `tag(): `<code class="type">Read</code>
+## `slice: `<code class="type">Str</code>
+
+Takes a slice of a string. Inclusive of start position, exclusive of end position.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s: </code><code class="type">Str</code></td><td>The string to slice.</td>
+</tr>
+<tr>
+<td><code>start: </code><code class="type">Num</code></td><td>The start position.</td>
+</tr>
+</tr>
+<tr>
+<td><code>end: </code><code class="type">Num</code></td><td>The end position.</td>
+</tr>
+</table>
+
+```matchbox
+# equal to 'ell'
+sliced_string = slice('hello', 1, 3)
+```
+
+</div>
+
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `tag: `<code class="type">Read</code>
 
 Copies a read and appends a string to the end of its description line. A space is added.
 
-<table>
-<th>Parameter</th>
+<table style="margin-left: 0; width: 100%">
+
+<th style="width: 11em">Parameter</th>
 <th>Description</th>
 <tr>
 <td><code>read: </code><code class="type">Read</code></td><td>The read to tag.</td>
@@ -97,9 +88,10 @@ Copies a read and appends a string to the end of its description line. A space i
 <tr>
 <td><code>tag: </code><code class="type">Str</code></td><td>The string to append to the read's description line.</td>
 </tr>
+<tr>
+<td><code><i>prefix</i>: </code><code class="type">Str</code><code> = ' '</code></td><td>A string inserted between the existing description line and the new tag.</td>
+</tr>
 </table>
-
-**Example**
 
 ```matchbox
 # trim off the first 10 bases,
@@ -111,21 +103,344 @@ if read is [bc:|10| rest:_] =>
 
 </div>
 
+<br>
+<br>
+
 ---
 
 <div class="function_block">
 
-## `describe(): `<code class="type">Str</code>
-Searches for a set of sequences within a read's `seq` field, and returns the pattern which most precisely describes the read, as a `Str`.
+## `translate: `<code class="type">Str</code>
 
-<table>
-<th>Parameter</th>
+Translates a string from nucleotide to protein sequence. Naively assumes that you've given it a string representing a valid sequence of nucleotides. When the input string contains an invalid codon (including if the input string contains characters aside from `A`, `C`, `T` and `G`), a `'?'` character is produced. 
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>seq: </code><code class="type">Str</code></td><td>The sequence to translate.</td>
+</tr>
+</table>
+
+```matchbox
+seq = AGCCCTCCAGGACAGGCTGCATCAGAAGAG
+# will translate to SPPGQAASEE
+prot = translate(seq)
+```
+
+</div>
+
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `str_concat:` <code class="type">Str</code>
+
+Concatenates two strings. 
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s0: </code><code class="type">Str</code></td><td>The first string.</td>
+</tr>
+<tr>
+<td><code>s1: </code><code class="type">Str</code></td><td>The second string.</td>
+</tr>
+</table>
+
+```matchbox
+s0 = 'hello'
+s1 = 'world'
+
+# all equivalent
+a = str_concat(s0, s1)
+b = '{s0}{s1}'
+c = 'helloworld'
+```
+
+</div>
+
+
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `concat:` <code class="type">Read</code>
+
+Concatenates two reads together. 
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>r1: </code><code class="type">Read</code></td><td>The first read.</td>
+</tr>
+<tr>
+<td><code>r2: </code><code class="type">Read</code></td><td>The second read.</td>
+</tr>
+</table>
+
+```matchbox
+# locate a known sequence, and cut it out -
+# concatenating everything before the sequence
+# onto everything after it
+if read is [before:_ AGCTAGTCG after:_] => 
+    before
+        .concat(after)
+        .out!('primer_excluded.fq')
+```
+
+```matchbox
+# glue together the forward read1 and the reverse read2
+read.r1.concat(-read.r2).out!('glued.fq')
+```
+
+</div>
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `csv:` <code class="type">[Record]</code>
+
+Opens a CSV and produces a list of records. The field names of each record correspond to the header names of the CSV, and the values correspond to the values found on each row. This processing occurs once, at the start of execution. The entire CSV is loaded into memory.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>filename: </code><code class="type">Str</code></td><td>The CSV file to open.</td>
+</tr>
+</table>
+
+```matchbox
+primer = AGCTAGTCGATGC
+bcs = csv('my_barcodes.csv')
+
+if read is [_ primer bc.sequence _] for bc in bcs =>
+    read.tag('barcode={bc.barcode_name}')
+        .out!('demultiplexed.fq')
+```
+
+
+</div>
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `tsv:` <code class="type">[Record]</code>
+
+Opens a TSV and produces a list of records. The field names of each record correspond to the header names of the TSV, and the values correspond to the values found on each row. This processing occurs once, at the start of execution. The entire TSV is loaded into memory.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>filename: </code><code class="type">Str</code></td><td>The TSV file to open.</td>
+</tr>
+</table>
+
+```matchbox
+primer = AGCTAGTCGATGC
+bcs = tsv('my_barcodes.tsv')
+
+if read is [_ primer bc.sequence _] for bc in bcs =>
+    read.tag('barcode={bc.barcode_name}')
+        .out!('demultiplexed.fq')
+```
+
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `fasta:` <code class="type">[Read]</code>
+
+Opens a FASTA and produces a list of reads, each one containing `seq`, `id` and `desc` fields. This processing occurs once, at the start of execution. The entire TSV is loaded into memory.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>filename: </code><code class="type">Str</code></td><td>The TSV file to open.</td>
+</tr>
+</table>
+
+```matchbox
+primer = AGCTAGTCGATGC
+bcs = fasta('my_barcodes.fa')
+
+if read is [_ primer bc.seq _] for bc in bcs =>
+    read.tag('barcode={bc.id}')
+        .out!('demultiplexed.fq')
+```
+
+</div>
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `find_first:` <code class="type">Num</code>
+
+Searches for a substring within a string. If the substring is present, returns the first 0-based position within the string where the substring could be found. If the substring is not present, returns `-1`.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s0: </code><code class="type">Str</code></td><td>The string to search through.</td>
+</tr>
+<tr>
+<td><code>s1: </code><code class="type">Str</code></td><td>The substring to search for in <code>s0</code>.</td>
+</tr>
+</table>
+
+```matchbox
+# get the protein translation of the read
+protein = read.seq.translate()
+# find the first Cysteine amino acid in the sequence
+location = protein.find_first('C')
+# if a Cysteine could be found, trim the read,
+# only keeping everything after the first Cys codon
+if location != -1 =>
+    if read is [|location*3| rest:_] =>
+        rest.out!('trimmed.fq')
+```
+
+</div>
+
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `find_last:` <code class="type">Num</code>
+
+Searches for a substring within a string. If the substring is present, returns the last 0-based position within the string where the substring could be found. If the substring is not present, returns `-1`.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s0: </code><code class="type">Str</code></td><td>The string to search through.</td>
+</tr>
+<tr>
+<td><code>s1: </code><code class="type">Str</code></td><td>The substring to search for in <code>s0</code>.</td>
+</tr>
+</table>
+
+```matchbox
+# get the protein translation of the read
+protein = read.seq.translate()
+# find the last Cysteine amino acid in the sequence
+location = protein.find_last('C')
+# if a Cysteine could be found, trim the read,
+# only keeping everything before the last Cys codon
+if location != -1 =>
+    if read is [rest:_ |location*3|] =>
+        rest.out!('trimmed.fq')
+```
+
+</div>
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `to_upper:` <code class="type">Str</code>
+
+Converts a string to upper-case. Non-alphabetic characters are unaffected.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s: </code><code class="type">Str</code></td><td>The string to convert to upper-case.</td>
+</tr>
+</table>
+
+```matchbox
+loud_hello = 'hello'.to_upper()
+```
+
+</div>
+
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `to_lower:` <code class="type">Str</code>
+
+Converts a string to lower-case. Non-alphabetic characters are unaffected.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s: </code><code class="type">Str</code></td><td>The string to convert to lower-case.</td>
+</tr>
+</table>
+
+```matchbox
+quiet_hello = 'HELLO'.to_lower()
+```
+
+
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `describe:` <code class="type">Str</code>
+
+Searches for a set of sequences within a read's `seq` field, and returns the pattern which most precisely describes the read, as a `Str`. Very useful for exploring the arrangement of known primers and static regions in your data!
+
+Each search term is searched within the read. If `reverse_complement` is true, the reverse-complement sequences are also searched. Edit distance is allowed in proportion to the length of each search term sequence and the `error` parameter. Any matches are then concatenated together to produce a pattern string which describes the read in terms of the searched sequences.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
 <th>Description</th>
 <tr>
 <td><code>read: </code><code class="type">Read</code></td><td>The read to describe.</td>
 </tr>
 <tr>
-<td><code>search_terms: </code><code class="type">{..}</code></td><td>The set of terms to search for. Each field of the struct must have a <code>Str</code> value. Each field's name is used as a label in the pattern.</td>
+<td><code>search_terms: </code><code class="type">Record</code></td><td>The set of terms to search for. Each field of the struct must have a <code class="type">Str</code> value, which represents the sequence to search for. Each field's name is used as a label for the sequence in the pattern.</td>
 </tr>
 <tr>
 <td><code><i>reverse_complement</i>: </code><code class="type">Bool</code><code> = false</code></td><td>Whether to additionally search for the reverse complement of each search term.</td>
@@ -135,199 +450,296 @@ Searches for a set of sequences within a read's `seq` field, and returns the pat
 </tr>
 </table>
 
-**Example**
-
 ```matchbox
 read.describe(
-    { tso = AGCATGCTGATG },
+    { tso = AGCATGCTGATG, rtp = GATCGTACGTGTTG },
     reverse_complement = true
 ) |> count!()
 ```
+
 </div>
 
-### `to_upper(s: Str): Str`
-Converts a string `s` to upper case. Non-alphabetic characters are unchanged.
-### `to_lower(s: Str) -> Str`
-Converts a string `s` to lower case. Non-alphabetic characters are unchanged.
 
----
 
-# Output functions
-
-Some functions produce output, which accumulate across all of the reads. This is the way to get results out of <i>matchbox</i>. These functions have 
+<br>
+<br>
 
 ---
 
 <div class="function_block">
 
-## `out!(): `<code class="type">Effect</code>
-Searches for a set of sequences within a read's `seq` field, and returns the pattern which most precisely describes the read, as a `Str`.
+## `contains:` <code class="type">Bool</code>
 
-<table>
-<th>Parameter</th>
+Checks whether a value is present in a list. 
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
 <th>Description</th>
 <tr>
-<td><code>read: </code><code class="type">Read</code></td><td>The read to describe.</td>
+<td><code>list: </code><code class="type">[Any]</code></td><td>The list to search through.</td>
 </tr>
 <tr>
-<td><code>search_terms: </code><code class="type">{..}</code></td><td>The set of terms to search for. Each field of the struct must have a <code>Str</code> value. Each field's name is used as a label in the pattern.</td>
-</tr>
-<tr>
-<td><code><i>reverse_complement</i>: </code><code class="type">Bool</code><code> = false</code></td><td>Whether to additionally search for the reverse complement of each search term.</td>
-</tr>
-<tr>
-<td><code><i>error</i>: </code><code class="type">Num</code><code> = 0</code></td><td>Error rate proportion to allow when searching for each search term.</td>
+<td><code>val: </code><code class="type">Any</code></td><td>The value to search for.</td>
 </tr>
 </table>
 
-**Example**
-
 ```matchbox
-read.describe(
-    { tso = AGCATGCTGATG },
-    reverse_complement = true
-) |> count!()
+# we have a one-column CSV, 
+# containing the names of a subset of 
+# reads we're interested in
+names = csv('names.csv')
+
+# if the read is on the list,
+# include it in the subset
+if names.contains({name = read.id}) =>
+    read |> out!('subset.fq')
 ```
+
 </div>
 
+<br>
+<br>
 
 ---
 
-# Operators
+<div class="function_block">
 
-Operators are a special group of built-in functions which have symbols as their names, and which are applied between their arguments.
+## `distance:` <code class="type">Num</code>
+
+Calculates the global edit distance between two strings.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s0: </code><code class="type">Str</code></td><td>The first string.</td>
+</tr>
+<tr>
+<td><code>s1: </code><code class="type">Str</code></td><td>The second string.</td>
+</tr>
+</table>
 
 ```matchbox
-# + and > are both operators
-if 10 + 2 > 11 => 'basic maths' |> stdout()
+# equal to 1
+d = distance('cat', 'bat')
 ```
 
-Some operators bind more tightly than others. The full list of operators is given below, from tightest to loosest precedence.
+</div>
+
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `stdout!:` <code class="type">Effect</code>
+
+Prints any value directly to `stdout`. 
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>val: </code><code class="type">Any</code></td><td>The value to print.</td>
+</tr>
+</table>
+
+```matchbox
+# print out each read's ID
+stdout!(read.id)
+```
+
+</div>
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `out!:` <code class="type">Effect</code>
+
+Prints any value to a file. Based on the filename, the format of the output will be inferred. When the filetype denotes FASTA, FASTQ or SAM format, the value provided must be a read containing the following fields:
 
 <table>
-<th>Precedence</th>
-<th>Operators</th>
+<th>Input format</th>
+<th>Fields</th>
 
 <tr>
-<td>0</td><td>
-    <i>All literal values</i><br>
-    <i>Function / method calls</i><br>
-    <i>Accessing fields of records</i><br>
-</td>
-<td>
-</td>
-</tr>
-
-<tr>
-<td>1</td><td>
+<td>FASTA<br>(<code>.fa</code>, <code>.fasta</code>)</td><td>
     <table>
         <tr>
-            <td style="width:9em"><code> -</code><code class="type">Num</code></td>
-            <td style="width:12em">Unary negation</td>
+            <td style="width:11em"><code>seq: </code><code class="type">Str</code></td>
         </tr>
         <tr>
-            <td><code> -</code><code class="type">Str</code></td>
-            <td>Division</td>
+            <td style="width:11em"><code>id: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>desc: </code><code class="type">Str</code></td>
         </tr>
     </table>
 </td>
 </tr>
-
 <tr>
-<td>2</td><td>
+<td>FASTQ<br>(<code>.fq</code>, <code>.fastq</code>)</td><td>
     <table>
         <tr>
-            <td style="width:9em"><code class="type">Num</code><code> * </code><code class="type">Num</code></td>
-            <td style="width:12em">Multiplication</td>
+            <td style="width:11em"><code>seq: </code><code class="type">Str</code></td>
         </tr>
         <tr>
-            <td><code class="type">Num</code><code> / </code><code class="type">Num</code></td>
-            <td>Division</td>
+            <td style="width:11em"><code>id: </code><code class="type">Str</code></td>
         </tr>
         <tr>
-            <td><code class="type">Num</code><code> % </code><code class="type">Num</code><br></td>
-            <td>Modulo</td>
-        </tr>
-    </table>
-</td>
-
-</tr>
-
-<tr>
-<td>3</td><td>
-    <table>
-        <tr>
-            <td style="width:9em"><code class="type">Num</code><code> + </code><code class="type">Num</code></td>
-            <td style="width:12em">Addition</td>
+            <td style="width:11em"><code>desc: </code><code class="type">Str</code></td>
         </tr>
         <tr>
-            <td><code class="type">Num</code><code> - </code><code class="type">Num</code></td>
-            <td>Subtraction</td>
-        </tr>
-    </table>
-
-</td>
-</tr>
-
-
-<tr>
-<td>4</td><td>
-    <table>
-        <tr>
-            <td style="width:9em"><code class="type">Num</code><code> < </code><code class="type">Num</code></td>
-            <td style="width:12em">Less than</td>
-        </tr>
-        <tr>
-            <td><code class="type">Num</code><code> > </code><code class="type">Num</code></td>
-            <td>Greater than</td>
-        </tr>
-        <tr>
-            <td><code class="type">Num</code><code> <= </code><code class="type">Num</code></td>
-            <td>Less than or equal</td>
-        </tr>
-        <tr>
-            <td><code class="type">Num</code><code> >= </code><code class="type">Num</code></td>
-            <td>Greater than or equal</td>
+            <td style="width:11em"><code>qual: </code><code class="type">Str</code></td>
         </tr>
     </table>
 </td>
 </tr>
-
 <tr>
-<td>5</td><td>
+<td>SAM<br>(<code>.sam</code>, <code>.bam</code>)</td><td>
     <table>
         <tr>
-            <td style="width:9em"><code class="type">Any</code><code> == </code><code class="type">Any</code></td>
-            <td style="width:12em">Equality</td>
+            <td style="width:11em"><code>id | qname: </code><code class="type">Str</code></td>
         </tr>
         <tr>
-            <td><code class="type">Any</code><code> != </code><code class="type">Any</code></td>
-            <td>Inequality</td>
+            <td style="width:11em"><code>flag: </code><code class="type">Num</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>rname: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>pos: </code><code class="type">Num</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>mapq: </code><code class="type">Num</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>cigar: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>rnext: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>pnext: </code><code class="type">Num</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>tlen: </code><code class="type">Num</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>seq: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>qual: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>desc: </code><code class="type">Str</code></td>
         </tr>
     </table>
 </td>
 </tr>
-
-<tr>
-<td>6</td><td>
-    <table>
-        <tr>
-            <td style="width:9em"><code class="type">Bool</code><code> and </code><code class="type">Bool</code></td>
-            <td style="width:12em">Logical AND</td>
-        </tr>
-    </table>
-</td>
-</tr>
-
-<tr>
-<td>7</td><td>
-    <table>
-        <tr>
-            <td style="width:9em"><code class="type">Bool</code><code> or </code><code class="type">Bool</code></td>
-            <td style="width:12em">Logical OR</td>
-        </tr>
-    </table>
-</td>
-</tr>
-
 </table>
+
+If the file is any other format, it is treated as a plain text file, and any values sent to it are simply printed directly and separated by newlines.
+
+A file is only created when the first
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>val: </code><code class="type">Any</code></td><td>The value to print.</td>
+</tr>
+<tr>
+<td><code>filename: </code><code class="type">Str</code></td><td>The name of the file to write to.</td>
+</tr>
+</table>
+
+```matchbox
+if read is [|10| rest:_] => rest.out!('trimmed.fq')
+```
+
+</div>
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `count!:` <code class="type">Effect</code>
+
+Collects all of the values sent to `count!` across all of the reads. Tallies up the number of times each unique value is sent. At the end of execution, prints out a table of counts for each value. 
+
+Can be used for quantifying how many reads match certain criteria, or for counting occurrences of sequences such as barcodes.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>val: </code><code class="type">Any</code></td><td>The value to be counted.</td>
+</tr>
+</table>
+
+```matchbox
+# count each read towards the 'total'
+count!('total')
+
+# for each read with a length over 1000,
+# count it towards the 'long' total
+if read.len() > 1000 => count!('long')
+```
+
+```matchbox
+primer = AGCTAGCTGA
+
+# find the primer, and then count the 
+# occurrences of unique 10-bp sequences following it
+if read is [_ primer bc:|10| _] =>
+    bc.seq.count!()
+```
+
+</div>
+
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `average!:` <code class="type">Effect</code>
+
+Collects all of the numeric values sent to `average!` across all of the reads. At the end of execution, prints out the mean and variance. 
+
+To avoid having to store all numeric values, variance is calculated online using [Welford's online algorithm](https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance).
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>num: </code><code class="type">Num</code></td><td>The number to contribute to the average.</td>
+</tr>
+</table>
+
+```matchbox
+# calculate the average length of all sequences
+read.seq.len().average!()
+```
+
+```matchbox
+primer = AGCTAGCTGA
+
+# for reads that contain the primer,
+# calculate the average position at which it occurs
+if read is [before:_ primer _] =>
+    before.seq.len().average!()
+```
+
+</div>

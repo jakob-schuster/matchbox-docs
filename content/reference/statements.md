@@ -25,26 +25,36 @@ b = 'the value of a is {a}'
 
 ## Producing output
 
-The value of an expression can be sent to an output.
+Some expressions produce output, which accumulates across all of the input reads. Summary statistics, trimmed read files and the standard output stream are all examples of outputs in *matchbox*. 
 
-Summary statistics, trimmed read files and the standard output stream are all examples of outputs in *matchbox*. Outputs accumulate across all of the input reads. 
+Functions that produce output have exclamation marks after their name. Only expressions that produce output are allowed at the statement level.
 
 ```matchbox
-'total reads' |> counts()
+# count every read towards a tally of 'total reads'
+count!('total reads')
 
+# when reads are shorter than 100 bp, 
+# count them towards a tally of 'very short' reads
 if read.seq.len() < 100 =>
-    'very short' |> counts()
+    count!('very short')
+
+# (both of these tallies will be printed
+# after the reads have been processed)
 ```
 
 ```matchbox
 if read is [first:|10| rest:_] => {
-    first |> file('first_10bp.fq')
-    rest |> file('rest.fq')
+    # send the first 10 bp of each read to 'first_10bp.fq'
+    first.out!('first_10bp.fq')
+    # and send the remaining part of the read to 'rest.fq'
+    rest.out!('rest.fq')
 }
 ```
 
 ```matchbox
-read.seq.len() |> average()
+# the pipe operator |> can be used as 
+# an alternative to the dot . when calling functions
+read.seq.len() |> average!()
 ```
 
 ---
@@ -53,28 +63,26 @@ read.seq.len() |> average()
 
 `if` statements can be used to ensure some statements only execute when certain conditions are met.
 
-A <code class="type">Bool</code> expression can be used.
+A <code class="type">Bool</code> expression can be used in a conditional.
 
 ```matchbox
 if len(read.seq) > 1000 => read.out!('long.fa')
 ```
 
-Multiple branches can be included, separated by semicolons or newlines. The branches are tried in order, and only the first successful branch is executed.
+`if` statements can have multiple branches, separated by semicolons or newlines. The branches are attempted in order, and only the first successful branch is executed.
 
 ```matchbox
-if len(read.seq) > 1000 => read |> file('long.fa')
-   len(read.seq) > 100 => read |> file('medium.fa')
+if len(read.seq) > 1000 => read |> out!('long.fa')
+   len(read.seq) > 100 => read |> out!('medium.fa')
+
+# for reads shorter than 100 bp, 
+# neither branch will execute!
 ```
 
-Alternatively, pattern matching can be performed on an expression using the `is` keyword. 
+Alternatively, pattern matching can be performed on an expression using the `is` keyword. Reads can be pattern-matched with error tolerance, and trimmed regions can be extracted. For more information, see [Patterns](../patterns/).
 
 ```matchbox
-if read.name is 
-    'read1' => {
-        '' |> counts()
-        read.seq |> stdout()
-    }
-    _ => 'other reads' |> counts()
+# trim off polyA tails
+if read is 
+    [_ AAAAAAAA after:_] => after.out!('trimmed.fa')
 ```
-
-To perform pattern matching on reads, which supports error tolerance and allows for slices of reads to be extracted, special read pattern syntax can be used. For more information, see [Patterns](../patterns/).

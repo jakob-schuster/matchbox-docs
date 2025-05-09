@@ -50,7 +50,7 @@ if read is [_ primer umi:|8| _] =>
         </span>
         </td>
         <td>
-            The <code>tag</code> function allows you to easily append to a read's metadata. See <a href="https://en.wikipedia.org/wiki/Levenshtein_distance">Working with metadata</a>. 
+            The <code>tag</code> function allows you to easily append to a read's metadata. See <a href="">Working with metadata</a>. 
         </td>
     </tr>
 </table>

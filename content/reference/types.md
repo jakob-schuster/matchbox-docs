@@ -16,8 +16,6 @@ Generally, *matchbox* users don't need to worry about learning the types. Howeve
 
 A Boolean value. Either `true` or `false`.
 
-**Example**
-
 ```matchbox
 a = true
 b = false
@@ -49,8 +47,6 @@ if d and c => {
 
 A numeric value. Can be negative, can include a decimal component. Represented internally as a 32-bit floating point number.
 
-**Example**
-
 ```matchbox
 a = 10000
 
@@ -73,8 +69,6 @@ A string value, consisting of a sequence of ASCII characters. May represent a nu
 
 Strings must be constructed using single quotes; for example, `'hello world'`. Values can be inserted into strings using curly braces `{}`.
 
-**Example**
-
 ```matchbox
 message = 'read named {read.id} is {read.seq.len()} bases'
 
@@ -93,9 +87,7 @@ A list of values all belonging to the same type.
 
 Lists can be iterated over when pattern matching, useful when working with barcodes.
 
-**Example**
-
-```matchbox
+<!-- ```matchbox
 # has type [Num]
 list1 = [10, 2, 3]
 
@@ -105,7 +97,7 @@ f = (n: Num) => n.to_str()
 # after mapping the function f over list1,
 # list2 has type [Str]
 list2 = list1.map(f)
-```
+``` -->
 
 ```matchbox
 # a list of records derived from the CSV header
@@ -166,9 +158,9 @@ duplicate = (rec: { R }) -> { fst: R, snd: R } =>
 
 Reads are a special kind of record to represent a sequencing read.
 
-Reads must contain a `seq` field, and they can be sliced, reverse-complemented and pattern-matched.
+Reads contain a `seq` field, and they can be sliced, reverse-complemented and pattern-matched.
 
-Different input formats will produce different kinds of <code class="type">Read</code>. 
+Different input formats will produce different kinds of <code class="type">Read</code>. See [Manipulating read metadata](../../guides/working-with-metadata/).
 
 
 </div>
@@ -176,6 +168,10 @@ Different input formats will produce different kinds of <code class="type">Read<
 ---
 
 # Advanced types
+
+Only the above types are relevant to *matchbox* users; the remaining types are only really relevant to those working on the *matchbox* backend. Don't worry if they seem confusing!
+
+---
 
 <div class="function_block">
 
@@ -185,11 +181,20 @@ A function, which can be applied to a sequence of arguments to return a value. E
 
 A function of type <code class="type">(Num, Num) -> Str</code> takes two arguments of type <code class="type">Num</code> and returns a value of type <code class="type">Str</code>.
 
-An example of such a function is <br>`(n1: Num, n2: Num) => '{n1} and {n2}'`.
-
-**Example**
+An example of such a function is:
 
 ```matchbox
+f = (n1: Num, n2: Num) => '{n1} and {n2}'
+```
+
+Functions can also have optional parameters. A function of the type <code class="type">(Num, opt_arg: Num = 0) -> Num</code> has one mandatory positional argument, and one optional argument called `opt_arg`, of type <code class="type">Num</code>, with the default value `0`. 
+
+For two function types to be equivalent:
+- They must have the same number of mandatory positional arguments, and the types of each argument must be equivalent.
+- They must have the same optional named arguments, with equivalent names, types, and values.
+- They must have equivalent return types.
+
+<!-- ```matchbox
 # function of type (Num, Num) -> Str
 #   note that you must declare the argument types,
 #   but the return type is inferred
@@ -210,7 +215,7 @@ i = (fun: (Num, Num) -> Str, n: Num) => fun(n, n)
 # result has type Str
 # evaluates to '10 and 10'
 result = i(f, 10)
-```
+``` -->
 
 </div>
 
@@ -221,7 +226,7 @@ result = i(f, 10)
 
 ## Any <code class="type">Any</code>
 
-A value of any type. Concrete values will always have a more specific type than <code class="type">Any</code>; it merely exists so that some functions can have sufficiently generic type signatures. For example, `to_str` can convert any value to a <code class="type">Str</code> regardless of its value, so its type signature is <code class="type">(Any) -> Str</code>.
+A value of any type. Concrete values will always have a more specific type than <code class="type">Any</code>; it merely exists so that some functions can have sufficiently generic type signatures. For example, `to_str` can convert any value to a <code class="type">Str</code> regardless of its value, so its type is <code class="type">(Any) -> Str</code>.
 
 </div>
 
@@ -231,7 +236,7 @@ A value of any type. Concrete values will always have a more specific type than 
 
 ## Type <code class="type">Type</code>
 
-A value which is itself a type. All instances of the above types (e.g. <code class="type">Str</code>, <code class="type">{ age: Num }</code>, <code class="type">(Bool, Bool) -> Bool</code>) are themselves values of this type. Hence, you can create type aliases.
+A value which is itself a type. All instances of the above types (e.g. <code class="type">Str</code>, <code class="type">{ age: Num }</code>, <code class="type">(Bool, Bool) -> Bool</code>) are themselves values of this type. Hence, you can create type aliases, by assigning a variable to a type:
 
 ```matchbox
 # aliasing a list of Num type as NumList
@@ -262,6 +267,8 @@ rows = csv('friends.csv')
 if read is [_ row.seq _] for row in rows =>
     read |> file('trimmed.fq')
 ```
+
+We do this so that, if a user loads a CSV and tries to access a field which doesn't exist in their particular CSV, *matchbox* can give them a type error.
 
 <!-- ```matchbox
 # NumPair is declared as an alias

@@ -1,5 +1,5 @@
 +++
-title = "Working with metadata"
+title = "Manipulating read metadata"
 template = "page.html"
 weight = 4
 +++
