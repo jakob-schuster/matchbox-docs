@@ -718,7 +718,7 @@ if read is [_ primer bc:|10| _] =>
 
 Collects all of the numeric values sent to `average!` across all of the reads. At the end of execution, prints out the mean and variance. 
 
-To avoid having to store all numeric values, variance is calculated online using [Welford's online algorithm](https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance).
+To avoid having to store all the numeric values, variance is calculated using [Welford's online algorithm](https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance).
 
 <table style="margin-left: 0; width: 100%">
 <th style="width: 11em">Parameter</th>
