@@ -197,7 +197,7 @@ read.describe(
 
 ## Operators
 
-A number of built-in common operators can be used. They are applied infix.
+A number of built-in common operators can be used. They are applied prefix or infix as appropriate.
 
 ```matchbox
 # + and > are both operators
