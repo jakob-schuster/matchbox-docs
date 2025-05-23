@@ -676,13 +676,16 @@ if read is [|10| rest:_] => rest.out!('trimmed.fq')
 
 Collects all of the values sent to `count!` across all of the reads. Tallies up the number of times each unique value is sent. At the end of execution, prints out a table of counts for each value. 
 
-Can be used for quantifying how many reads match certain criteria, or for counting occurrences of sequences such as barcodes.
+Can be used for quantifying how many reads match certain criteria, or for counting occurrences of sequences such as barcodes. To generate multiple seperate counts tables from a single pass, the `name` parameter can be used to identify different global counts variables. Each `name` will correspond to a fresh table.
 
 <table style="margin-left: 0; width: 100%">
 <th style="width: 11em">Parameter</th>
 <th>Description</th>
 <tr>
 <td><code>val: </code><code class="type">Any</code></td><td>The value to be counted.</td>
+</tr>
+<tr>
+<td><code><i>name</i>: </code><code class="type">Str</code><code> = 'default'</code></td><td>The name of the global counts matrix to store the value into. Multiple tables of counts can be generated, using different names.</td>
 </tr>
 </table>
 
@@ -698,10 +701,19 @@ if read.len() > 1000 => count!('long')
 ```matchbox
 primer = AGCTAGCTGA
 
+# all reads count to the 'total' in the 'read types' table
+count!('total', name='read types')
+
 # find the primer, and then count the 
 # occurrences of unique 10-bp sequences following it
-if read is [_ primer bc:|10| _] =>
-    bc.seq.count!()
+if read is [_ primer bc:|10| _] => {
+    # reads with the primer are counted
+    # in the 'read types' table
+    count!('found primer', name='read types')
+
+    # unique barcodes are tracked by the 'barcodes' table
+    bc.seq.count!(name = 'barcodes')
+}
 ```
 
 </div>
@@ -716,7 +728,7 @@ if read is [_ primer bc:|10| _] =>
 
 ## `average!:` <code class="type">Effect</code>
 
-Collects all of the numeric values sent to `average!` across all of the reads. At the end of execution, prints out the mean and variance. 
+Collects all of the numeric values sent to `average!` across all of the reads. To simultaneously calculate multiple averages, the `name` parameter can be used. At the end of execution, prints out the mean and variance. 
 
 To avoid having to store all the numeric values, variance is calculated using [Welford's online algorithm](https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance).
 
@@ -726,6 +738,9 @@ To avoid having to store all the numeric values, variance is calculated using [W
 <tr>
 <td><code>num: </code><code class="type">Num</code></td><td>The number to contribute to the average.</td>
 </tr>
+<tr>
+<td><code><i>name</i>: </code><code class="type">Str</code><code> = 'default'</code></td><td>The name of the global variable to store the average into. Multiple averages can be calculated at once, using different names.</td>
+</tr>
 </table>
 
 ```matchbox
@@ -734,12 +749,15 @@ read.seq.len().average!()
 ```
 
 ```matchbox
+# calculate average sequence length
+read.seq.len().average!(name='sequence length')
+
 primer = AGCTAGCTGA
 
 # for reads that contain the primer,
 # calculate the average position at which it occurs
 if read is [before:_ primer _] =>
-    before.seq.len().average!()
+    before.seq.len().average!(name='primer position')
 ```
 
 </div>
