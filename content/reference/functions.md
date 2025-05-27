@@ -534,6 +534,59 @@ d = distance('cat', 'bat')
 
 <div class="function_block">
 
+## `to_str:` <code class="type">Str</code>
+
+Converts any value to a <code class="type">Str</code>. Equivalent to formatting the value in a string literal (e.g. `'{val}'`).
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>v: </code><code class="type">Any</code></td><td>The value to convert.</td>
+</tr>
+</table>
+
+```matchbox
+# convert the length of the sequence (a Num) into a Str
+length_str = read.seq.len().to_str()
+# calculate the length of the Str
+number_of_digits = length_str.len()
+```
+
+</div>
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
+## `to_num:` <code class="type">Num</code>
+
+Parses a <code class="type">Str</code> into a <code class="type">Num</code>. When given a value that can't be parsed into a floating-point number, throws an error.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s: </code><code class="type">Str</code></td><td>The string to parse.</td>
+</tr>
+</table>
+
+```matchbox
+'100'.to_num()
+```
+
+</div>
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
 ## `stdout!:` <code class="type">Effect</code>
 
 Prints any value directly to `stdout`. 
