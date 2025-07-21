@@ -112,7 +112,7 @@ if read is [bc:|10| rest:_] =>
 
 ## `translate: `<code class="type">Str</code>
 
-Translates a string from nucleotide to protein sequence. Naively assumes that you've given it a string representing a valid sequence of nucleotides. When the input string contains an invalid codon (including if the input string contains characters aside from `A`, `C`, `T` and `G`), a `'?'` character is produced. 
+Translates a string from nucleotide to protein sequence. Naively assumes that you've given it a string representing a valid sequence of nucleotides. Stop codons are represented as hyphen characters (`-`). When the input string contains an invalid codon (i.e. when the input string contains   characters aside from `A`, `C`, `T` and `G`), a `?` character is produced.
 
 <table style="margin-left: 0; width: 100%">
 <th style="width: 11em">Parameter</th>
