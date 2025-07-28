@@ -814,3 +814,95 @@ if read is [before:_ primer _] =>
 ```
 
 </div>
+
+---
+
+<div class="function_block">
+
+## `min:` <code class="type">Num</code>
+
+Takes the minimum of a list of numbers. When supplied with an empty list, throws an error.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>l: </code><code class="type">[Num]</code></td><td>The list to compute the minimum of.</td>
+</tr>
+</table>
+
+```matchbox
+# calculate the minimum quality score in a read
+read.qual.to_qscores().min() |> average!()
+```
+
+</div>
+
+---
+
+<div class="function_block">
+
+## `max:` <code class="type">Num</code>
+
+Takes the maximum of a list of numbers. When supplied with an empty list, throws an error.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>l: </code><code class="type">[Num]</code></td><td>The list to compute the maximum of.</td>
+</tr>
+</table>
+
+```matchbox
+# calculate the maximum quality score in a read
+read.qual.to_qscores().max() |> average!()
+```
+
+</div>
+
+---
+
+<div class="function_block">
+
+## `mean:` <code class="type">Num</code>
+
+Takes the mean of a list of numbers. When supplied with an empty list, throws an error.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>l: </code><code class="type">[Num]</code></td><td>The list to compute the mean of.</td>
+</tr>
+</table>
+
+```matchbox
+# calculate the mean quality score in a read
+read.qual.to_qscores().mean() |> average!()
+```
+
+</div>
+
+---
+
+<div class="function_block">
+
+## `to_qscores:` <code class="type">[Num]</code>
+
+Takes a string of [Phred quality scores](https://en.wikipedia.org/wiki/Phred_quality_score) and converts each character to its corresponding quality score (0-40). When supplied with a character outside the expected range of Phred characters, throws an error.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>qual: </code><code class="type">Str</code></td><td>The quality string to convert.</td>
+</tr>
+</table>
+
+```matchbox
+# calculate the mean quality score in a read
+read.qual.to_qscores().mean() |> average!()
+```
+
+</div>
