@@ -9,9 +9,10 @@ Often, we have known sequences such as primers that we want to search for in our
 ```matchbox
 primer = AGCTAGCTGATGCTAGCTGG
 
-if read is 
+if read matches { 
     [_ primer _] => count!('found primer')
     [_] => count!('other')
+}
 ```
 
 <div class="info_block">
@@ -36,10 +37,11 @@ If we also want to search for the reverse complement of the primer:
 ```matchbox
 primer = AGCTAGCTGATGCTAGCTGG
 
-if read is 
+if read matches {
     [_ primer _] => count!('found primer')
     [_ -primer _] => count!('found reverse primer')
     [_] => count!('other')
+}
 ```
 
 ## Filtering
@@ -49,10 +51,11 @@ If we want to filter our reads into different files:
 ```matchbox
 primer = AGCTAGCTGATGCTAGCTGG
 
-if read is 
+if read matches {
     [_ primer _] => read.out!('primer.fq')
     [_ -primer _] => read.out!('rev_primer.fq')
     [_] => read.out!('other.fq')
+}
 ```
 
 <div class="info_block">
@@ -78,9 +81,10 @@ Often, we have multiple known sequences we want to search for.
 primer1 = AGCTAGCTGATGCTAGCTGG
 primer2 = AGCTAGCTGATGCTAGCTGG
 
-if read is 
+if read matches {
     [_ primer1 _ primer2 _] => count!('both primers')
     [_] => count!('one or neither')
+}
 ```
 
 ## Discovering arrangements of primers in reads 

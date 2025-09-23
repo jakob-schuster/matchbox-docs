@@ -46,7 +46,7 @@ b = a
 
 # variables bound in patterns are accessible 
 # inside the body of the branch
-if read is [fst:|5| _] => fst.seq.stdout!()
+if read matches [fst:|5| _] => fst.seq.stdout!()
 
 # but NOT outside it! 
 fst.seq.len().average!()
@@ -104,6 +104,23 @@ stdout!(message)
 
 <div class="function_block">
 
+## List literals
+
+List literals are a set of square brackets, containing a number of values. All values must be of the same type.
+
+
+```matchbox
+# creating a list of Str
+barcodes = [AAAA, CCCC, GTGT]
+
+# accessing a field of a record with a dot
+if read matches [_ b _] for b in barcodes => read.id |> stdout!()
+```
+</div>
+
+---
+<div class="function_block">
+
 ## Record literals
 
 Record literals are a set of curly braces, containing a number of fields. Each field has a name and an expression, separated by equals. 
@@ -118,7 +135,7 @@ rec = {
 }
 
 # accessing a field of a record with a dot
-if read is [_ rec.primer _] => read.out!(rec.output)
+if read matches [_ rec.primer _] => read.out!(rec.output)
 ```
 </div>
 
@@ -230,6 +247,10 @@ Some operators bind more tightly than others. The full list of operators is give
         <tr>
             <td><code> -</code>( <code class="type">Str</code> | <code class="type">Read</code> )</td>
             <td>Reverse-complementation</td>
+        </tr>
+        <tr>
+            <td style="width:9em"><code> not </code><code class="type">Bool</code></td>
+            <td style="width:12em">Logical NOT</td>
         </tr>
     </table>
 </td>

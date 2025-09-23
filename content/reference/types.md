@@ -25,12 +25,12 @@ c = a or b
 d = a and b
 
 
-if a => {
+if a {
     # this will get printed
     stdout!('a was true')
 }
 
-if d and c => {
+if d and c {
     # this will not get printed!
     stdout!('d and c were both true')
 }
@@ -106,7 +106,7 @@ refs = csv('references.csv')
 
 # within a pattern, you can iterate
 # over all the values in a list
-if read is [_ r.seq _] for r in refs =>
+if read matches [_ r.seq _] for r in refs =>
     r.name |> stdout()
 ```
 
@@ -128,7 +128,7 @@ rec = {
 }
 
 # accessing a field of a record with a dot
-if read is [_ rec.primer _] => read.out!(rec.output)
+if read matches [_ rec.primer _] => read.out!(rec.output)
 ```
 
 <!-- A record type <code class="type">{ name: Str, age: Num }</code> has only two fields: <code>name</code> which is a <code class="type">Str</code>, and `age` which is a <code class="type">Num</code>.
@@ -247,7 +247,7 @@ Users probably shouldn't worry about this! But treating types as values is helpf
 
 For example, the function `csv_ty` takes a filename, opens it as a CSV, and returns a record type with each of the CSV's columns as a <code class="type">Str</code> field. Therefore, `csv_ty` has the type <code class="type">(Str) -> Type</code>.
 
-```matchbox
+```matchboxx
 # header_ty has type Type
 # and its value is { first_name: Str, last_name: Str }
 # (because those are the headers in this particular CSV)
@@ -264,7 +264,7 @@ rows = csv('friends.csv')
 
 # this is an error, because we know each row
 # does NOT include a 'seq' field
-if read is [_ row.seq _] for row in rows =>
+if read matches [_ row.seq _] for row in rows =>
     read |> file('trimmed.fq')
 ```
 

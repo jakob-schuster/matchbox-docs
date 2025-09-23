@@ -12,13 +12,14 @@ With pattern matching, *matchbox* can be used to filter, trim or demultiplex rea
 
 ## Branches
 
-Pattern-matching takes place in the branches of an `if` .. `is` statement:
+Pattern-matching takes place in the branches of an `if` .. `matches` statement:
 
 ```matchbox
 # trim off polyA tails
-if read is 
+if read matches {
     [_ AAAAAAAA after:_] => after.out!('trimmed.fa')
     [_] => read.out!('no_polya.fa')
+}
 ```
 
 Branches are separated by semicolons or newlines. Each branch is tried in order, until one is successful. Only the first successful branch will be executed. 
@@ -42,12 +43,13 @@ If you want to trigger multiple statements from a single branch, use curly brace
 
 ```matchbox
 # trim off polyA tails
-if read is 
+if read matches {
     [_ AAAAAAAA after:_] => {
         after.out!('trimmed.fa')
         count!('polyA reads')
     }
     [_] => count!('other reads')
+}
 ```
 
 ---
@@ -73,7 +75,12 @@ A pattern contains a series of regions enclosed in square brackets `[]`. Pattern
     <tr>
         <td>Known sequence</td>
         <td><i>s</i></td>
-        <td>Matches a known sequence <i>s</i>, where <i>s</i> is an expression of type <code class="type">Str</code>. This may be a sequence literal such as <code>AAAAAAAA</code>, or a variable name such as <code>primer</code>. <br><br>Allows <i>d</i> base pairs of edit distance, where <i>d</i> is the length of <i>n</i> times the global error rate.</td>
+        <td>Matches a known sequence <i>s</i>, where <i>s</i> is an expression of type <code class="type">Str</code>. This may be a sequence literal such as <code>AAAAAAAA</code>, or a variable name such as <code>primer</code>. <br><br>Allows <i>d</i> base pairs of edit distance, where <i>d</i> is the length of <i>s</i> times the global error rate.</td>
+    </tr>
+    <tr>
+        <td>Known sequence with specified error rate</td>
+        <td><i>s</i><code>~</code><i>n</i></td>
+        <td>Matches a known sequence <i>s</i>, while overriding the error rate with <i>n</i>. <i>s</i> is an expression of type <code class="type">Str</code>, and <i>n</i> is an expression of type <code class="type">Num</code>. <br><br>Allows <i>d</i> base pairs of edit distance, where <i>d</i> is the length of <i>s</i> times the specified error rate <i>n</i>.</td>
     </tr>
     <tr>
         <td>Named</td>
@@ -118,6 +125,11 @@ Here are some examples of patterns, and how to read them:
         <td><code>[_ AAAAAAAAAA _]</code></td>
         <td>A read containing the sequence <code>AAAAAAAAAA</code>.</td>
     </tr>
+    <tr>
+        <td><code>[_ AAAAAAAAAA~0.2 _]</code></td>
+        <td>A read containing the sequence <code>AAAAAAAAAA</code>, with error rate 0.2.</td>
+    </tr>
+    <tr>
     <tr>
         <td><code>[fst:_ AAAAAAAAAA _]</code></td>
         <td>A read containing the sequence <code>AAAAAAAAAA</code>. Extract the bases before the sequence, and call them <code>fst</code>.</td>
@@ -164,7 +176,7 @@ Patterns can also be parameterised, useful when demultiplexing or matching again
 primer = AGCTAGTCGATGC
 bcs = fasta('my_barcodes.fa')
 
-if read is [_ primer bc.seq _] for bc in bcs =>
+if read matches [_ primer bc.seq _] for bc in bcs =>
     read.tag('barcode={bc.id}')
         .out!('demultiplexed.fq')
 ```

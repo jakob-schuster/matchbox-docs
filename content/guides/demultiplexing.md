@@ -17,7 +17,7 @@ primer = AGCTAGTCGATGC
 
 # build a count matrix of all the raw sequences
 # found at the expected barcode location
-if read is [_ primer bc:|16| _] => bc.seq.count!()
+if read matches [_ primer bc:|16| _] => bc.seq.count!()
 ```
 
 ## Searching for barcodes from a reference file
@@ -30,7 +30,7 @@ If your barcodes are in FASTA format, the `fasta` function can be used. Then, to
 primer = AGCTAGTCGATGC
 bcs = fasta('my_barcodes.fa')
 
-if read is [_ primer bc.seq _] for bc in bcs =>
+if read matches [_ primer bc.seq _] for bc in bcs =>
     read.tag('barcode={bc.id}')
         .out!('demultiplexed.fq')
 ```
@@ -49,7 +49,7 @@ bc2,GGGG
 primer = AGCTAGTCGATGC
 bcs = csv('my_barcodes.csv')
 
-if read is [_ primer bc.sequence _] for bc in bcs =>
+if read matches [_ primer bc.sequence _] for bc in bcs =>
     read.tag('barcode={bc.barcode_name}')
         .out!('demultiplexed.fq')
 ```
@@ -80,7 +80,7 @@ It can be preferable to create separate files for each barcode:
 primer = AGCTAGTCGATGC
 bcs = fasta('my_barcodes.fa')
 
-if read is [_ primer bc.seq _] for bc in bcs =>
+if read matches [_ primer bc.seq _] for bc in bcs =>
     read.out!('{bc.id}_reads.fq')
 ```
 
@@ -95,7 +95,7 @@ primer = AGCTAGTCGATGC
 bcs1 = fasta('my_barcodes1.fa')
 bcs2 = fasta('my_barcodes2.fa')
 
-if read is [_ primer bc1.seq linker bc2.seq _] 
+if read matches [_ primer bc1.seq linker bc2.seq _]
     for bc1 in bcs1, bc2 in bcs2 =>
         read.tag('barcode1={bc1.name}')
             .tag('barcode2={bc2.name}')
@@ -110,7 +110,7 @@ If two barcodes are distinct barcodes from the same reference list, we can load 
 primer = AGCTAGTCGATGC
 bcs = fasta('my_barcodes.fa')
 
-if read is [_ primer bc1.seq linker bc2.seq _] 
+if read matches [_ primer bc1.seq linker bc2.seq _] 
     for bc1 in bcs, bc2 in bcs =>
         read.tag('barcode1={bc1.name}')
             .tag('barcode2={bc2.name}')
@@ -125,7 +125,7 @@ If we expect to find the exact same barcode in two places within a read, we can 
 primer = AGCTAGTCGATGC
 bcs = fasta('my_barcodes.fa')
 
-if read is [_ primer bc.seq linker bc.seq _] 
+if read matches [_ primer bc.seq linker bc.seq _] 
     for bc in bcs =>
         read.tag('barcode={bc.name}')
             .out!('demultiplexed.fq')
@@ -144,6 +144,6 @@ bc2,GGGG,ACGATG
 ```matchbox
 refs = csv('my_reference.csv')
 
-if read is [_ static1 ref.part1 static2 ref.part2 _]
+if read matches [_ static1 ref.part1 static2 ref.part2 _]
     for ref in refs => read.out!('{ref.name}.fa')
 ```

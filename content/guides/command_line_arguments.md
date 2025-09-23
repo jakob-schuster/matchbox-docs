@@ -11,7 +11,7 @@ The built-in `args` variable can be used for this purpose. It is a <code class="
 In the following script, a primer is located and 10 bp following it are extracted:
 
 ```matchbox
-if [_ args.primer bc:|10| _] => count!(bc.seq)
+if read matches [_ args.primer bc:|10| _] => count!(bc.seq)
 ```
 
 To run the script, the `primer` argument must be provided at the command line:
@@ -23,7 +23,7 @@ matchbox -s my_script.mb --args "primer = AGCTGATGCTGT"
 We could make the script more flexible by allowing the user to specify the barcode length:
 
 ```matchbox
-if [_ args.primer bc:|args.barcode_length| _] => 
+if read matches [_ args.primer bc:|args.barcode_length| _] => 
     count!(bc.seq)
 ```
 

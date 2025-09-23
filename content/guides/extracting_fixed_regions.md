@@ -7,21 +7,21 @@ weight = 1
 Sometimes we want to extract a fixed number of bases from a read. Fixed-length regions can be specified using vertical bars:
 
 ```matchbox
-if read is [first_five:|5| _] => 
+if read matches [first_five:|5| _] => 
     first_five.out!('starts.fq')
 ```
 
 Fixed-length regions can be taken from either side of the read:
 
 ```matchbox
-if read is [_ last_five:|5|] => 
+if read matches [_ last_five:|5|] => 
     last_five.out!('ends.fq')
 ```
 
 If we also want to separately extract the rest of the sequence:
 
 ```matchbox
-if read is [start:|5| rest:_ end:|5|] => {
+if read matches [start:|5| rest:_ end:|5|] => {
     start.out!('starts.fq')
     rest.out!('rest.fq')
     end.out!('ends.fq')
@@ -35,7 +35,7 @@ Fixed-length regions can also be extracted from either side of known sequences:
 ```matchbox
 primer = AGCTAGCTGATCGATGAGCT
 
-if read is [_ primer umi:|8| _] =>
+if read matches [_ primer umi:|8| _] =>
     read.tag('umi={umi.seq}')
         .out!('with_umis.fq')
 ```

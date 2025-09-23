@@ -35,15 +35,16 @@ count!('total reads')
 
 # when reads are shorter than 100 bp, 
 # count them towards a tally of 'very short' reads
-if read.seq.len() < 100 =>
+if read.seq.len() < 100 {
     count!('very short')
+}
 
 # (both of these tallies will be printed
 # after the reads have been processed)
 ```
 
 ```matchbox
-if read is [first:|10| rest:_] => {
+if read matches [first:|10| rest:_] => {
     # send the first 10 bp of each read to 'first_10bp.fq'
     first.out!('first_10bp.fq')
     # and send the remaining part of the read to 'rest.fq'
@@ -66,23 +67,26 @@ read.seq.len() |> average!()
 A <code class="type">Bool</code> expression can be used in a conditional.
 
 ```matchbox
-if len(read.seq) > 1000 => read.out!('long.fa')
+if len(read.seq) > 1000 {
+    read.out!('long.fa')
+}
 ```
 
-`if` statements can have multiple branches, separated by semicolons or newlines. The branches are attempted in order, and only the first successful branch is executed.
+`if` statements can have an `else` branch.
 
 ```matchbox
-if len(read.seq) > 1000 => read |> out!('long.fa')
-   len(read.seq) > 100 => read |> out!('medium.fa')
-
-# for reads shorter than 100 bp, 
-# neither branch will execute!
+if len(read.seq) > 1000 {
+    read |> out!('long.fa')
+} else if len(read.seq) > 100 {
+    read |> out!('medium.fa')
+} else {
+    read |> out!('short')
+}
 ```
 
-Alternatively, pattern matching can be performed on an expression using the `is` keyword. Reads can be pattern-matched with error tolerance, and trimmed regions can be extracted. For more information, see [Patterns](../patterns/).
+Alternatively, pattern matching can be performed on an expression using the `matches` keyword. Reads can be pattern-matched with error tolerance, and trimmed regions can be extracted. For more information, see [Patterns](../patterns/).
 
 ```matchbox
 # trim off polyA tails
-if read is 
-    [_ AAAAAAAA after:_] => after.out!('trimmed.fa')
+if read matches [_ AAAAAAAA after:_] => after.out!('trimmed.fa')
 ```

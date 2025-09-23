@@ -79,7 +79,7 @@ read.seq.len().average!()
 <td>
 
 ```matchbox
-if read is [_ primer umi:|10| _] =>
+if read matches [_ primer umi:|10| _] =>
     read.tag('umi={umi.seq}')
         .out!('processed.fq')
 ```
@@ -91,7 +91,7 @@ if read is [_ primer umi:|10| _] =>
 <td>
 
 ```matchbox
-if read is [_ b1.seq linker b2.seq _] 
+if read matches [_ b1.seq linker b2.seq _] 
     for b1, b2 in csv('barcodes.tsv') =>
         read.out!('{b1.seq}_{b2.seq}.fq')
 ```
