@@ -641,55 +641,6 @@ if read.flag.not_primary_alignment() {
 
 <div class="function_block">
 
-## `paired:` <code class="type">Bool</code>
-
-Checks whether a BAM/SAM flag indicates that a read is paired.
-
-<table style="margin-left: 0; width: 100%">
-<th style="width: 11em">Parameter</th>
-<th>Description</th>
-<tr>
-<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
-</tr>
-</table>
-
-```matchbox
-if read.flag.paired() {
-    read.out!('contained flag')
-}
-```
-
-</div>
-
----
-
-<div class="function_block">
-
-## `pcr_or_optical_duplicate:` <code class="type">Bool</code>
-
-Checks whether a BAM/SAM flag indicates that a read is a PCR or optical duplicate.
-
-<table style="margin-left: 0; width: 100%">
-<th style="width: 11em">Parameter</th>
-<th>Description</th>
-<tr>
-<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
-</tr>
-</table>
-
-```matchbox
-if read.flag.pcr_or_optical_duplicate() {
-    read.out!('contained flag')
-}
-```
-
-</div>
-
----
-
-
-<div class="function_block">
-
 ## `out!:` <code class="type">Effect</code>
 
 Prints any value to a file. Based on the filename, the format of the output will be inferred. When the filetype denotes FASTA, FASTQ or SAM format, the value provided must be a read containing the following fields:
@@ -799,6 +750,55 @@ if read matches [|10| rest:_] => rest.out!('trimmed.fq')
 <br>
 <br>
 
+
+---
+
+<div class="function_block">
+
+## `paired:` <code class="type">Bool</code>
+
+Checks whether a BAM/SAM flag indicates that a read is paired.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
+</tr>
+</table>
+
+```matchbox
+if read.flag.paired() {
+    read.out!('contained flag')
+}
+```
+
+</div>
+
+---
+
+<div class="function_block">
+
+## `pcr_or_optical_duplicate:` <code class="type">Bool</code>
+
+Checks whether a BAM/SAM flag indicates that a read is a PCR or optical duplicate.
+
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
+</tr>
+</table>
+
+```matchbox
+if read.flag.pcr_or_optical_duplicate() {
+    read.out!('contained flag')
+}
+```
+
+</div>
+
 ---
 
 <div class="function_block">
@@ -855,6 +855,35 @@ if read.flag.reverse_strand() {
 ```
 
 </div>
+
+---
+
+<div class="function_block">
+
+## `round: `<code class="type">Num</code>
+
+Rounds a number to the nearest integer value.
+
+<table style="margin-left: 0; width: 100%">
+
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>n: </code><code class="type">Num</code></td><td>The number to round.</td>
+</tr>
+</table>
+
+```matchbox
+# i is equal to 3
+i = round(3.3)
+
+
+```
+
+</div>
+
+<br>
+<br>
 
 ---
 
