@@ -14,6 +14,33 @@ Functions are used to manipulate and transform data. Most of the time, users wil
 
 <div class="function_block">
 
+## `ceil: `<code class="type">Num</code>
+
+Rounds a number up to the nearest integer value.
+
+<table style="margin-left: 0; width: 100%">
+
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>n: </code><code class="type">Num</code></td><td>The number to round.</td>
+</tr>
+</table>
+
+```matchbox
+# i is equal to 4
+i = round(3.3)
+```
+
+</div>
+
+<br>
+<br>
+
+---
+
+<div class="function_block">
+
 ## `concat:` <code class="type">Read</code>
 
 Concatenates two reads together. 
@@ -429,6 +456,33 @@ if read.flag.first_in_pair() {
 ```
 
 </div>
+
+---
+
+<div class="function_block">
+
+## `floor: `<code class="type">Num</code>
+
+Rounds a number down to the nearest integer value.
+
+<table style="margin-left: 0; width: 100%">
+
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>n: </code><code class="type">Num</code></td><td>The number to round.</td>
+</tr>
+</table>
+
+```matchbox
+# i is equal to 3
+i = floor(3.7)
+```
+
+</div>
+
+<br>
+<br>
 
 ---
 
