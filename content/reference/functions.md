@@ -1252,13 +1252,19 @@ read.qual.to_qscores().mean() |> average!()
 
 ## `translate: `<code class="type">Str</code>
 
-Translates a string from nucleotide to protein sequence. Naively assumes that you've given it a string representing a valid sequence of nucleotides. Stop codons are represented as hyphen characters (`-`). When the input string contains an invalid codon (i.e. when the input string contains   characters aside from `A`, `C`, `T` and `G`), a `?` character is produced.
+Translates a string from nucleotide to protein sequence. Naively assumes that you've given it a string representing a valid sequence of nucleotides. Stop codons are represented by a single character given by the `stop_codon` argument (by default, hyphen `-`). When the input string contains an invalid codon (i.e. when the input string contains   characters aside from `A`, `C`, `T` and `G`), this is represented by a single character given by the `illegal_codon` argument.
 
 <table style="margin-left: 0; width: 100%">
 <th style="width: 11em">Parameter</th>
 <th>Description</th>
 <tr>
 <td><code>seq: </code><code class="type">Str</code></td><td>The sequence to translate.</td>
+</tr>
+<tr>
+<td><code><i>stop_codon</i>: </code><code class="type">Str</code><code> = '-'</code></td><td>The character used to represent a stop codon.</td>
+</tr>
+<tr>
+<td><code><i>illegal_codon</i>: </code><code class="type">Str</code><code> = '?'</code></td><td>The character used to represent an attempt to translate a codon containing non-nucleotide characters.</td>
 </tr>
 </table>
 
