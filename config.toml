@@ -19,4 +19,4 @@ index_format = "fuse_json"
 
 [extra]
 # Put all your custom variables here
-version = "1.0.0"
+version = "1.0.1"
