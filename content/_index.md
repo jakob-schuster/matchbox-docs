@@ -19,15 +19,11 @@ You could use *matchbox* for:
 
 ## Installation
 
-Clone the GitHub repo and build it using cargo. More accessible distribution coming soon!
+
+Install *matchbox* via [*cargo*, the package manager for Rust:](https://rust-lang.org/tools/install/)
 
 ```bash
-git clone https://github.com/jakob-schuster/matchbox.git
-cd matchbox
-cargo build --release
-
-# then, run matchbox from the release directory
-./target/release/matchbox --help
+cargo install matchbox-cli
 ```
 
 ## Command-line usage
