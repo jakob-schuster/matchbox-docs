@@ -218,7 +218,9 @@ A number of built-in common operators can be used. They are applied prefix or in
 
 ```matchbox
 # + and > are both operators
-if 10 + 2 > 11 => 'basic maths' |> stdout()
+if 10 + 2 > 11 {
+    'basic maths' |> stdout()
+}
 ```
 
 Some operators bind more tightly than others. The full list of operators is given below, from tightest to loosest precedence.
