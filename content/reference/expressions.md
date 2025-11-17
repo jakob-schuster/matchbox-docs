@@ -141,7 +141,7 @@ if read matches [_ rec.primer _] => read.out!(rec.output)
 
 ---
 
-<div class="function_block">
+<!-- <div class="function_block">
 
 ## Function literals
 
@@ -166,7 +166,7 @@ print_both = (v1: Str, v2: Str, separator: Str = ' & ') =>
 
 </div>
 
----
+--- -->
 
 <div class="function_block">
 
