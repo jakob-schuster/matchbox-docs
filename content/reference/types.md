@@ -247,7 +247,7 @@ Users probably shouldn't worry about this! But treating types as values is helpf
 
 For example, the function `csv_ty` takes a filename, opens it as a CSV, and returns a record type with each of the CSV's columns as a <code class="type">Str</code> field. Therefore, `csv_ty` has the type <code class="type">(Str) -> Type</code>.
 
-```matchboxx
+```matchbox
 # header_ty has type Type
 # and its value is { first_name: Str, last_name: Str }
 # (because those are the headers in this particular CSV)
