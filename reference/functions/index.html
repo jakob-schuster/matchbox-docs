@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=info" />
+    <meta charset="UTF-8" />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="base" content="https://jakob-schuster.github.io/matchbox-docs" />
+
+    <title></title>
+    <meta
+      name="description"
+      itemprop="about"
+      content=""
+    />
+    <link rel="stylesheet" href="https://jakob-schuster.github.io/matchbox-docs/styles.css" />
+    <!-- <script defer type="module" src="https://jakob-schuster.github.io/matchbox-docs/tinysearch_engine.js?h=e2e8bff3133f60971be6"></script> -->
+    <script defer type="module" src="https://jakob-schuster.github.io/matchbox-docs/js/tinysearch.js?h=4d3fc5229a7d46b41777"></script>
+
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <!-- site logo -->
+        <a href="https://jakob-schuster.github.io/matchbox-docs">
+          <img
+            src="https://jakob-schuster.github.io/matchbox-docs/img/logo.png"
+            class="site-logo"
+            alt="Logo"
+            width="275px"
+            height="auto"
+          />
+        </a>
+
+        <p></p>
+
+        <!-- view on github -->
+        <p class="view"
+          ><a href="https://github.com/jakob-schuster/matchbox"
+            >View the project on GitHub.
+            <small>jakob-schuster/matchbox</small></a
+          ></p
+        >
+
+        <!-- search bar -->
+        <!-- <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div> -->
+
+        <!-- navigation list -->
+        <h2>Navigation</h2>
+        <nav role="navigation">
+          <ul>
+            <li><a href="https://jakob-schuster.github.io/matchbox-docs">Quick start</a></li>
+              
+                  
+                  
+                      
+                      <li >
+                          
+                          <a href="https://jakob-schuster.github.io/matchbox-docs/guides/">
+                              
+                              Guides
+                          </a>
+                          
+                              <ul>
+                                  
+                                      <li >
+                                          <a href="https://jakob-schuster.github.io/matchbox-docs/guides/searching-for-primers/">
+                                              
+                                              Searching for sequences
+                                          </a>
+                                      </li>
+                                  
+                                      <li >
+                                          <a href="https://jakob-schuster.github.io/matchbox-docs/guides/extracting-fixed-regions/">
+                                              
+                                              Fixed-length regions
+                                          </a>
+                                      </li>
+                                  
+                                      <li >
+                                          <a href="https://jakob-schuster.github.io/matchbox-docs/guides/demultiplexing/">
+                                              
+                                              Demultiplexing
+                                          </a>
+                                      </li>
+                                  
+                                      <li >
+                                          <a href="https://jakob-schuster.github.io/matchbox-docs/guides/working-with-metadata/">
+                                              
+                                              Manipulating read metadata
+                                          </a>
+                                      </li>
+                                  
+                                      <li >
+                                          <a href="https://jakob-schuster.github.io/matchbox-docs/guides/command-line-arguments/">
+                                              
+                                              Command-line arguments
+                                          </a>
+                                      </li>
+                                  
+                              </ul>
+                          
+                      </li>
+                  
+                      
+                      <li >
+                          
+                          <a href="https://jakob-schuster.github.io/matchbox-docs/reference/">
+                              
+                              Reference
+                          </a>
+                          
+                              <ul>
+                                  
+                                      <li >
+                                          <a href="https://jakob-schuster.github.io/matchbox-docs/reference/statements/">
+                                              
+                                              Statements
+                                          </a>
+                                      </li>
+                                  
+                                      <li >
+                                          <a href="https://jakob-schuster.github.io/matchbox-docs/reference/patterns/">
+                                              
+                                              Patterns
+                                          </a>
+                                      </li>
+                                  
+                                      <li >
+                                          <a href="https://jakob-schuster.github.io/matchbox-docs/reference/types/">
+                                              
+                                              Types
+                                          </a>
+                                      </li>
+                                  
+                                      <li >
+                                          <a href="https://jakob-schuster.github.io/matchbox-docs/reference/expressions/">
+                                              
+                                              Expressions
+                                          </a>
+                                      </li>
+                                  
+                                      <li class="active">
+                                          <a href="https://jakob-schuster.github.io/matchbox-docs/reference/functions/">
+                                              
+                                              Function list
+                                          </a>
+                                      </li>
+                                  
+                              </ul>
+                          
+                      </li>
+                  
+              
+          </ul>
+        </nav>
+
+        <!-- spacer (to position the footer correctly) -->
+        <div id="spacer"></div>
+      
+        <!-- matchbox version number and zola -->
+        <footer>
+          <p>
+            <small>
+              <i>matchbox</i> official documentation v1.0.3. 
+              <br/>
+              Powered by <a href="https//www.getzola.org/">Zola</a> &mdash; Themed
+              with
+              <a href="https://github.com/semanticdata/zola-minimal/">Minimal</a
+              >.<br />
+            </small>
+          </p>
+        </footer>
+      </header>
+
+      <!-- main page content -->
+      <section> 
+<h1>Function list</h1>
+<p>Functions are used to manipulate and transform data. Most of the time, users will be applying built-in <em>matchbox</em> functions. This list includes every built-in function with examples.</p>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="ceil-num"><code>ceil: </code><code class="type">Num</code></h2>
+<p>Rounds a number up to the nearest integer value.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>n: </code><code class="type">Num</code></td><td>The number to round.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># i is equal to 4
+</span><span style="color:#bf616a;">i </span><span>= </span><span style="color:#8fa1b3;">round(</span><span style="color:#d08770;">3.3</span><span style="color:#8fa1b3;">)
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="concat-read"><code>concat:</code> <code class="type">Read</code></h2>
+<p>Concatenates two reads together.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>r1: </code><code class="type">Read</code></td><td>The first read.</td>
+</tr>
+<tr>
+<td><code>r2: </code><code class="type">Read</code></td><td>The second read.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># locate a known sequence, and cut it out -
+</span><span style="color:#65737e;"># concatenating everything before the sequence
+</span><span style="color:#65737e;"># onto everything after it
+</span><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read </span><span style="color:#b48ead;">matches [</span><span style="color:#bf616a;">before</span><span>:</span><span style="color:#d08770;">_ AGCTAGTCG </span><span style="color:#bf616a;">after</span><span>:</span><span style="color:#d08770;">_</span><span style="color:#b48ead;">] =&gt; 
+</span><span>    </span><span style="color:#bf616a;">before
+</span><span>        .</span><span style="color:#8fa1b3;">concat(</span><span style="color:#bf616a;">after</span><span style="color:#8fa1b3;">)
+</span><span>        .</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;primer_excluded.fq&#39;</span><span style="color:#8fa1b3;">)
+</span></code></pre>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># glue together the forward read1 and the reverse read2
+</span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">r1</span><span>.</span><span style="color:#8fa1b3;">concat(</span><span>-</span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">r2</span><span style="color:#8fa1b3;">)</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;glued.fq&#39;</span><span style="color:#8fa1b3;">)
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="contains-bool"><code>contains:</code> <code class="type">Bool</code></h2>
+<p>Checks whether a value is present in a list.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>list: </code><code class="type">[Any]</code></td><td>The list to search through.</td>
+</tr>
+<tr>
+<td><code>val: </code><code class="type">Any</code></td><td>The value to search for.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># we have a one-column CSV, 
+</span><span style="color:#65737e;"># containing the names of a subset of 
+</span><span style="color:#65737e;"># reads we&#39;re interested in
+</span><span style="color:#bf616a;">names </span><span>= </span><span style="color:#8fa1b3;">csv(</span><span style="color:#a3be8c;">&#39;names.csv&#39;</span><span style="color:#8fa1b3;">)
+</span><span>
+</span><span style="color:#65737e;"># if the read is on the list,
+</span><span style="color:#65737e;"># include it in the subset
+</span><span style="color:#b48ead;">if </span><span style="color:#bf616a;">names</span><span>.</span><span style="color:#8fa1b3;">contains(</span><span style="color:#96b5b4;">{</span><span style="color:#bf616a;">name </span><span>= </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">id</span><span style="color:#96b5b4;">}</span><span style="color:#8fa1b3;">) </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read </span><span>|&gt; </span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;subset.fq&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="count-matches-num"><code>count_matches:</code> <code class="type">Num</code></h2>
+<p>Counts the number of discrete times a sequence can be found in a read.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>read: </code><code class="type">Read</code></td><td>The read to match against.</td>
+</tr>
+<tr>
+<td><code>seq: </code><code class="type">Str</code></td><td>The sequence to search for.</td>
+</tr>
+<tr>
+<td><code>error_rate: </code><code class="type">Num</code></td><td>The allowed error rate.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#bf616a;">primer </span><span>= </span><span style="color:#d08770;">AGCTAGTCG
+</span><span>
+</span><span style="color:#65737e;"># count the number of primer occurrences
+</span><span style="color:#bf616a;">n </span><span>= </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">count_matches(</span><span style="color:#bf616a;">primer</span><span>, </span><span style="color:#bf616a;">error_rate </span><span>= </span><span style="color:#d08770;">0.2</span><span style="color:#8fa1b3;">)
+</span><span>
+</span><span style="color:#a3be8c;">&#39;primer appeared </span><span style="color:#96b5b4;">{</span><span style="color:#bf616a;">n</span><span style="color:#96b5b4;">}</span><span style="color:#a3be8c;"> times in read </span><span style="color:#96b5b4;">{</span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">id</span><span style="color:#96b5b4;">}</span><span style="color:#a3be8c;">&#39;</span><span>.</span><span style="color:#8fa1b3;">stdout!()
+</span></code></pre>
+</div>
+<div class="function_block">
+<h2 id="csv-record"><code>csv:</code> <code class="type">[Record]</code></h2>
+<p>Opens a CSV and produces a list of records. The field names of each record correspond to the header names of the CSV, and the values correspond to the values found on each row. This processing occurs once, at the start of execution. The entire CSV is loaded into memory.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>filename: </code><code class="type">Str</code></td><td>The CSV file to open.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#bf616a;">primer </span><span>= </span><span style="color:#d08770;">AGCTAGTCGATGC
+</span><span style="color:#bf616a;">bcs </span><span>= </span><span style="color:#8fa1b3;">csv(</span><span style="color:#a3be8c;">&#39;my_barcodes.csv&#39;</span><span style="color:#8fa1b3;">)
+</span><span>
+</span><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read </span><span style="color:#b48ead;">matches [</span><span style="color:#d08770;">_ </span><span style="color:#bf616a;">primer bc</span><span>.</span><span style="color:#bf616a;">sequence </span><span style="color:#d08770;">_</span><span style="color:#b48ead;">] for </span><span style="color:#bf616a;">bc </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">bcs </span><span style="color:#b48ead;">=&gt;
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">tag(</span><span style="color:#a3be8c;">&#39;barcode=</span><span style="color:#96b5b4;">{</span><span style="color:#bf616a;">bc</span><span>.</span><span style="color:#bf616a;">barcode_name</span><span style="color:#96b5b4;">}</span><span style="color:#a3be8c;">&#39;</span><span style="color:#8fa1b3;">)
+</span><span>        .</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;demultiplexed.fq&#39;</span><span style="color:#8fa1b3;">)
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="count-effect"><code>count!:</code> <code class="type">Effect</code></h2>
+<p>Collects all of the values sent to <code>count!</code> across all of the reads. Tallies up the number of times each unique value is sent. At the end of execution, prints out a table of counts for each value.</p>
+<p>Can be used for quantifying how many reads match certain criteria, or for counting occurrences of sequences such as barcodes. To generate multiple seperate counts tables from a single pass, the <code>name</code> parameter can be used to identify different global counts variables. Each <code>name</code> will correspond to a fresh table.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>val: </code><code class="type">Any</code></td><td>The value to be counted.</td>
+</tr>
+<tr>
+<td><code><i>name</i>: </code><code class="type">Str</code><code> = 'default'</code></td><td>The name of the global counts matrix to store the value into. Multiple tables of counts can be generated, using different names.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># count each read towards the &#39;total&#39;
+</span><span style="color:#8fa1b3;">count!(</span><span style="color:#a3be8c;">&#39;total&#39;</span><span style="color:#8fa1b3;">)
+</span><span>
+</span><span style="color:#65737e;"># for each read with a length over 1000,
+</span><span style="color:#65737e;"># count it towards the &#39;long&#39; total
+</span><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">len() </span><span>&gt; </span><span style="color:#d08770;">1000 </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="color:#8fa1b3;">count!(</span><span style="color:#a3be8c;">&#39;long&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#bf616a;">primer </span><span>= </span><span style="color:#d08770;">AGCTAGCTGA
+</span><span>
+</span><span style="color:#65737e;"># all reads count to the &#39;total&#39; in the &#39;read types&#39; table
+</span><span style="color:#8fa1b3;">count!(</span><span style="color:#a3be8c;">&#39;total&#39;</span><span>, </span><span style="color:#bf616a;">name</span><span>=</span><span style="color:#a3be8c;">&#39;read types&#39;</span><span style="color:#8fa1b3;">)
+</span><span>
+</span><span style="color:#65737e;"># find the primer, and then count the 
+</span><span style="color:#65737e;"># occurrences of unique 10-bp sequences following it
+</span><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read </span><span style="color:#b48ead;">matches [</span><span style="color:#d08770;">_ </span><span style="color:#bf616a;">primer bc</span><span>:</span><span style="color:#d08770;">|10| _</span><span style="color:#b48ead;">] =&gt; </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="color:#65737e;"># reads with the primer are counted
+</span><span>    </span><span style="color:#65737e;"># in the &#39;read types&#39; table
+</span><span>    </span><span style="color:#8fa1b3;">count!(</span><span style="color:#a3be8c;">&#39;found primer&#39;</span><span>, </span><span style="color:#bf616a;">name</span><span>=</span><span style="color:#a3be8c;">&#39;read types&#39;</span><span style="color:#8fa1b3;">)
+</span><span>
+</span><span>    </span><span style="color:#65737e;"># unique barcodes are tracked by the &#39;barcodes&#39; table
+</span><span>    </span><span style="color:#bf616a;">bc</span><span>.</span><span style="color:#bf616a;">seq</span><span>.</span><span style="color:#8fa1b3;">count!(</span><span style="color:#bf616a;">name </span><span>= </span><span style="color:#a3be8c;">&#39;barcodes&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="describe-str"><code>describe:</code> <code class="type">Str</code></h2>
+<p>Searches for a set of sequences within a read's <code>seq</code> field, and returns the pattern which most precisely describes the read, as a <code>Str</code>. Very useful for exploring the arrangement of known primers and static regions in your data!</p>
+<p>Each search term is searched within the read. If <code>reverse_complement</code> is true, the reverse-complement sequences are also searched. Edit distance is allowed in proportion to the length of each search term sequence and the <code>error</code> parameter. Any matches are then concatenated together to produce a pattern string which describes the read in terms of the searched sequences.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>read: </code><code class="type">Read</code></td><td>The read to describe.</td>
+</tr>
+<tr>
+<td><code>search_terms: </code><code class="type">Record</code></td><td>The set of terms to search for. Each field of the struct must have a <code class="type">Str</code> value, which represents the sequence to search for. Each field's name is used as a label for the sequence in the pattern.</td>
+</tr>
+<tr>
+<td><code><i>reverse_complement</i>: </code><code class="type">Bool</code><code> = false</code></td><td>Whether to additionally search for the reverse complement of each search term.</td>
+</tr>
+<tr>
+<td><code><i>error</i>: </code><code class="type">Num</code><code> = 0</code></td><td>Error rate proportion to allow when searching for each search term.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">describe(
+</span><span>    </span><span style="color:#96b5b4;">{ </span><span style="color:#bf616a;">tso </span><span>= </span><span style="color:#d08770;">AGCATGCTGATG</span><span>, </span><span style="color:#bf616a;">rtp </span><span>= </span><span style="color:#d08770;">GATCGTACGTGTTG </span><span style="color:#96b5b4;">}</span><span>,
+</span><span>    </span><span style="color:#bf616a;">reverse_complement </span><span>= </span><span style="color:#d08770;">true
+</span><span style="color:#8fa1b3;">) </span><span>|&gt; </span><span style="color:#8fa1b3;">count!()
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="distance-num"><code>distance:</code> <code class="type">Num</code></h2>
+<p>Calculates the global edit distance between two strings.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s0: </code><code class="type">Str</code></td><td>The first string.</td>
+</tr>
+<tr>
+<td><code>s1: </code><code class="type">Str</code></td><td>The second string.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># equal to 1
+</span><span style="color:#bf616a;">d </span><span>= </span><span style="color:#8fa1b3;">distance(</span><span style="color:#a3be8c;">&#39;cat&#39;</span><span>, </span><span style="color:#a3be8c;">&#39;bat&#39;</span><span style="color:#8fa1b3;">)
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="fails-platform-quality-checks-bool"><code>fails_platform_quality_checks:</code> <code class="type">Bool</code></h2>
+<p>Checks whether a BAM/SAM flag indicates that a read fails the platform quality checks.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">flag</span><span>.</span><span style="color:#8fa1b3;">fails_platform_quality_checks() </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;contained flag&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="fasta-read"><code>fasta:</code> <code class="type">[Read]</code></h2>
+<p>Opens a FASTA and produces a list of reads, each one containing <code>seq</code>, <code>id</code> and <code>desc</code> fields. This processing occurs once, at the start of execution. The entire TSV is loaded into memory.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>filename: </code><code class="type">Str</code></td><td>The TSV file to open.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#bf616a;">primer </span><span>= </span><span style="color:#d08770;">AGCTAGTCGATGC
+</span><span style="color:#bf616a;">bcs </span><span>= </span><span style="color:#8fa1b3;">fasta(</span><span style="color:#a3be8c;">&#39;my_barcodes.fa&#39;</span><span style="color:#8fa1b3;">)
+</span><span>
+</span><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read </span><span style="color:#b48ead;">matches [</span><span style="color:#d08770;">_ </span><span style="color:#bf616a;">primer bc</span><span>.</span><span style="color:#bf616a;">seq </span><span style="color:#d08770;">_</span><span style="color:#b48ead;">] for </span><span style="color:#bf616a;">bc </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">bcs </span><span style="color:#b48ead;">=&gt;
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">tag(</span><span style="color:#a3be8c;">&#39;barcode=</span><span style="color:#96b5b4;">{</span><span style="color:#bf616a;">bc</span><span>.</span><span style="color:#bf616a;">id</span><span style="color:#96b5b4;">}</span><span style="color:#a3be8c;">&#39;</span><span style="color:#8fa1b3;">)
+</span><span>        .</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;demultiplexed.fq&#39;</span><span style="color:#8fa1b3;">)
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="find-first-num"><code>find_first:</code> <code class="type">Num</code></h2>
+<p>Searches for a substring within a string. If the substring is present, returns the first 0-based position within the string where the substring could be found. If the substring is not present, returns <code>-1</code>.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s0: </code><code class="type">Str</code></td><td>The string to search through.</td>
+</tr>
+<tr>
+<td><code>s1: </code><code class="type">Str</code></td><td>The substring to search for in <code>s0</code>.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># get the protein translation of the read
+</span><span style="color:#bf616a;">protein </span><span>= </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">seq</span><span>.</span><span style="color:#8fa1b3;">translate()
+</span><span style="color:#65737e;"># find the first Cysteine amino acid in the sequence
+</span><span style="color:#bf616a;">location </span><span>= </span><span style="color:#bf616a;">protein</span><span>.</span><span style="color:#8fa1b3;">find_first(</span><span style="color:#a3be8c;">&#39;C&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#65737e;"># if a Cysteine could be found, trim the read,
+</span><span style="color:#65737e;"># only keeping everything after the first Cys codon
+</span><span style="color:#b48ead;">if </span><span style="color:#bf616a;">location</span><span> != -</span><span style="color:#d08770;">1 </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read </span><span style="color:#b48ead;">matches [</span><span style="color:#d08770;">|</span><span style="color:#bf616a;">location</span><span>*</span><span style="color:#d08770;">3| </span><span style="color:#bf616a;">rest</span><span>:</span><span style="color:#d08770;">_</span><span style="color:#b48ead;">] =&gt;
+</span><span>        </span><span style="color:#bf616a;">rest</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;trimmed.fq&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="find-last-num"><code>find_last:</code> <code class="type">Num</code></h2>
+<p>Searches for a substring within a string. If the substring is present, returns the last 0-based position within the string where the substring could be found. If the substring is not present, returns <code>-1</code>.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s0: </code><code class="type">Str</code></td><td>The string to search through.</td>
+</tr>
+<tr>
+<td><code>s1: </code><code class="type">Str</code></td><td>The substring to search for in <code>s0</code>.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># get the protein translation of the read
+</span><span style="color:#bf616a;">protein </span><span>= </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">seq</span><span>.</span><span style="color:#8fa1b3;">translate()
+</span><span style="color:#65737e;"># find the last Cysteine amino acid in the sequence
+</span><span style="color:#bf616a;">location </span><span>= </span><span style="color:#bf616a;">protein</span><span>.</span><span style="color:#8fa1b3;">find_last(</span><span style="color:#a3be8c;">&#39;C&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#65737e;"># if a Cysteine could be found, trim the read,
+</span><span style="color:#65737e;"># only keeping everything before the last Cys codon
+</span><span style="color:#b48ead;">if </span><span style="color:#bf616a;">location</span><span> != -</span><span style="color:#d08770;">1 </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read </span><span style="color:#b48ead;">matches [</span><span style="color:#bf616a;">rest</span><span>:</span><span style="color:#d08770;">_ |</span><span style="color:#bf616a;">location</span><span>*</span><span style="color:#d08770;">3|</span><span style="color:#b48ead;">] =&gt;
+</span><span>        </span><span style="color:#bf616a;">rest</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;trimmed.fq&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="first-in-pair-bool"><code>first_in_pair:</code> <code class="type">Bool</code></h2>
+<p>Checks whether a BAM/SAM flag indicates that a read is the first in a pair.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">flag</span><span>.</span><span style="color:#8fa1b3;">first_in_pair() </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;contained flag&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="floor-num"><code>floor: </code><code class="type">Num</code></h2>
+<p>Rounds a number down to the nearest integer value.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>n: </code><code class="type">Num</code></td><td>The number to round.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># i is equal to 3
+</span><span style="color:#bf616a;">i </span><span>= </span><span style="color:#8fa1b3;">floor(</span><span style="color:#d08770;">3.7</span><span style="color:#8fa1b3;">)
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="mapped-in-proper-pair-bool"><code>mapped_in_proper_pair:</code> <code class="type">Bool</code></h2>
+<p>Checks whether a BAM/SAM flag indicates that a read is mapped in a proper pair.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">flag</span><span>.</span><span style="color:#8fa1b3;">mapped_in_proper_pair() </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;contained flag&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="mate-reverse-strand-bool"><code>mate_reverse_strand:</code> <code class="type">Bool</code></h2>
+<p>Checks whether a BAM/SAM flag indicates that a read's pair is on the reverse strand.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">flag</span><span>.</span><span style="color:#8fa1b3;">mate_reverse_strand() </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;contained flag&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="mate-unmapped-bool"><code>mate_unmapped:</code> <code class="type">Bool</code></h2>
+<p>Checks whether a BAM/SAM flag indicates that a read's pair is unmapped.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">flag</span><span>.</span><span style="color:#8fa1b3;">mate_unmapped() </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;contained flag&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="max-num"><code>max:</code> <code class="type">Num</code></h2>
+<p>Takes the maximum of a list of numbers. When supplied with an empty list, throws an error.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>l: </code><code class="type">[Num]</code></td><td>The list to compute the maximum of.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># calculate the maximum quality score in a read
+</span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">qual</span><span>.</span><span style="color:#8fa1b3;">to_qscores()</span><span>.</span><span style="color:#8fa1b3;">max() </span><span>|&gt; </span><span style="color:#8fa1b3;">average!()
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="mean-num"><code>mean:</code> <code class="type">Num</code></h2>
+<p>Takes the mean of a list of numbers. When supplied with an empty list, throws an error.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>l: </code><code class="type">[Num]</code></td><td>The list to compute the mean of.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># calculate the mean quality score in a read
+</span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">qual</span><span>.</span><span style="color:#8fa1b3;">to_qscores()</span><span>.</span><span style="color:#8fa1b3;">mean() </span><span>|&gt; </span><span style="color:#8fa1b3;">average!()
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="mean-effect"><code>mean!:</code> <code class="type">Effect</code></h2>
+<p>Collects all of the numeric values sent to <code>mean!</code> across all of the reads. To simultaneously calculate multiple means, the <code>name</code> parameter can be used. At the end of execution, prints out the mean and variance.</p>
+<p>To avoid having to store all the numeric values, variance is calculated using <a href="https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance">Welford's online algorithm</a>.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>num: </code><code class="type">Num</code></td><td>The number to contribute to the mean.</td>
+</tr>
+<tr>
+<td><code><i>name</i>: </code><code class="type">Str</code><code> = 'default'</code></td><td>The name of the global variable to store the mean into. Multiple means can be calculated at once, using different names.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># calculate the mean length of all sequences
+</span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">seq</span><span>.</span><span style="color:#8fa1b3;">len()</span><span>.</span><span style="color:#8fa1b3;">mean!()
+</span></code></pre>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># calculate mean sequence length
+</span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">seq</span><span>.</span><span style="color:#8fa1b3;">len()</span><span>.</span><span style="color:#8fa1b3;">mean!(</span><span style="color:#bf616a;">name</span><span>=</span><span style="color:#a3be8c;">&#39;sequence length&#39;</span><span style="color:#8fa1b3;">)
+</span><span>
+</span><span style="color:#bf616a;">primer </span><span>= </span><span style="color:#d08770;">AGCTAGCTGA
+</span><span>
+</span><span style="color:#65737e;"># for reads that contain the primer,
+</span><span style="color:#65737e;"># calculate the mean position at which it occurs
+</span><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read </span><span style="color:#b48ead;">matches [</span><span style="color:#bf616a;">before</span><span>:</span><span style="color:#d08770;">_ </span><span style="color:#bf616a;">primer </span><span style="color:#d08770;">_</span><span style="color:#b48ead;">] =&gt;
+</span><span>    </span><span style="color:#bf616a;">before</span><span>.</span><span style="color:#bf616a;">seq</span><span>.</span><span style="color:#8fa1b3;">len()</span><span>.</span><span style="color:#8fa1b3;">mean!(</span><span style="color:#bf616a;">name</span><span>=</span><span style="color:#a3be8c;">&#39;primer position&#39;</span><span style="color:#8fa1b3;">)
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="min-num"><code>min:</code> <code class="type">Num</code></h2>
+<p>Takes the minimum of a list of numbers. When supplied with an empty list, throws an error.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>l: </code><code class="type">[Num]</code></td><td>The list to compute the minimum of.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># calculate the minimum quality score in a read
+</span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">qual</span><span>.</span><span style="color:#8fa1b3;">to_qscores()</span><span>.</span><span style="color:#8fa1b3;">min() </span><span>|&gt; </span><span style="color:#8fa1b3;">average!()
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="not-primary-alignment-bool"><code>not_primary_alignment:</code> <code class="type">Bool</code></h2>
+<p>Checks whether a BAM/SAM flag indicates that a read is not the primary alignment.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">flag</span><span>.</span><span style="color:#8fa1b3;">not_primary_alignment() </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;contained flag&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="out-effect"><code>out!:</code> <code class="type">Effect</code></h2>
+<p>Prints any value to a file. Based on the filename, the format of the output will be inferred. When the filetype denotes FASTA, FASTQ or SAM format, the value provided must be a read containing the following fields:</p>
+<table>
+<th>Input format</th>
+<th>Fields</th>
+<tr>
+<td>FASTA<br>(<code>.fa</code>, <code>.fasta</code>)</td><td>
+    <table>
+        <tr>
+            <td style="width:11em"><code>seq: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>id: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>desc: </code><code class="type">Str</code></td>
+        </tr>
+    </table>
+</td>
+</tr>
+<tr>
+<td>FASTQ<br>(<code>.fq</code>, <code>.fastq</code>)</td><td>
+    <table>
+        <tr>
+            <td style="width:11em"><code>seq: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>id: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>desc: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>qual: </code><code class="type">Str</code></td>
+        </tr>
+    </table>
+</td>
+</tr>
+<tr>
+<td>SAM<br>(<code>.sam</code>, <code>.bam</code>)</td><td>
+    <table>
+        <tr>
+            <td style="width:11em"><code>id | qname: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>flag: </code><code class="type">Num</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>rname: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>pos: </code><code class="type">Num</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>mapq: </code><code class="type">Num</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>cigar: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>rnext: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>pnext: </code><code class="type">Num</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>tlen: </code><code class="type">Num</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>seq: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>qual: </code><code class="type">Str</code></td>
+        </tr>
+        <tr>
+            <td style="width:11em"><code>desc: </code><code class="type">Str</code></td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<p>If the file is any other format, it is treated as a plain text file, and any values sent to it are simply printed directly and separated by newlines.</p>
+<p>A file is only created when the first</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>val: </code><code class="type">Any</code></td><td>The value to print.</td>
+</tr>
+<tr>
+<td><code>filename: </code><code class="type">Str</code></td><td>The name of the file to write to.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read </span><span style="color:#b48ead;">matches [</span><span style="color:#d08770;">|10| </span><span style="color:#bf616a;">rest</span><span>:</span><span style="color:#d08770;">_</span><span style="color:#b48ead;">] =&gt; </span><span style="color:#bf616a;">rest</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;trimmed.fq&#39;</span><span style="color:#8fa1b3;">)
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="paired-bool"><code>paired:</code> <code class="type">Bool</code></h2>
+<p>Checks whether a BAM/SAM flag indicates that a read is paired.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">flag</span><span>.</span><span style="color:#8fa1b3;">paired() </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;contained flag&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="pcr-or-optical-duplicate-bool"><code>pcr_or_optical_duplicate:</code> <code class="type">Bool</code></h2>
+<p>Checks whether a BAM/SAM flag indicates that a read is a PCR or optical duplicate.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">flag</span><span>.</span><span style="color:#8fa1b3;">pcr_or_optical_duplicate() </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;contained flag&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="rename-read"><code>rename: </code><code class="type">Read</code></h2>
+<p>Copies a read and changes its ID.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>read: </code><code class="type">Read</code></td><td>The read to rename.</td>
+</tr>
+<tr>
+<td><code>rename: </code><code class="type">Str</code></td><td>The new read ID.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># trim off the first 10 bases,
+</span><span style="color:#65737e;"># and rename the read with their sequence
+</span><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read </span><span style="color:#b48ead;">matches [</span><span style="color:#bf616a;">bc</span><span>:</span><span style="color:#d08770;">|10| </span><span style="color:#bf616a;">rest</span><span>:</span><span style="color:#d08770;">_</span><span style="color:#b48ead;">] =&gt;
+</span><span>    </span><span style="color:#bf616a;">rest</span><span>.</span><span style="color:#8fa1b3;">rename(</span><span style="color:#a3be8c;">&#39;</span><span style="color:#96b5b4;">{</span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">id</span><span style="color:#96b5b4;">}</span><span style="color:#a3be8c;">_</span><span style="color:#96b5b4;">{</span><span style="color:#bf616a;">bc</span><span>.</span><span style="color:#bf616a;">seq</span><span style="color:#96b5b4;">}</span><span style="color:#a3be8c;">&#39;</span><span style="color:#8fa1b3;">)
+</span><span>        .</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;out.fa&#39;</span><span style="color:#8fa1b3;">)
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="reverse-strand-bool"><code>reverse_strand:</code> <code class="type">Bool</code></h2>
+<p>Checks whether a BAM/SAM flag indicates that a read is on the reverse strand.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">flag</span><span>.</span><span style="color:#8fa1b3;">reverse_strand() </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;contained flag&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="round-num"><code>round: </code><code class="type">Num</code></h2>
+<p>Rounds a number to the nearest integer value.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>n: </code><code class="type">Num</code></td><td>The number to round.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># i is equal to 3
+</span><span style="color:#bf616a;">i </span><span>= </span><span style="color:#8fa1b3;">round(</span><span style="color:#d08770;">3.3</span><span style="color:#8fa1b3;">)
+</span><span>
+</span><span>
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="second-in-pair-bool"><code>second_in_pair:</code> <code class="type">Bool</code></h2>
+<p>Checks whether a BAM/SAM flag indicates that a read is the second in a pair.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">flag</span><span>.</span><span style="color:#8fa1b3;">second_in_pair() </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;contained flag&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="slice-str"><code>slice: </code><code class="type">Str</code></h2>
+<p>Takes a slice of a string. Inclusive of start position, exclusive of end position.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s: </code><code class="type">Str</code></td><td>The string to slice.</td>
+</tr>
+<tr>
+<td><code>start: </code><code class="type">Num</code></td><td>The start position.</td>
+</tr>
+</tr>
+<tr>
+<td><code>end: </code><code class="type">Num</code></td><td>The end position.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># equal to &#39;ell&#39;
+</span><span style="color:#bf616a;">sliced_string </span><span>= </span><span style="color:#8fa1b3;">slice(</span><span style="color:#a3be8c;">&#39;hello&#39;</span><span>, </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">3</span><span style="color:#8fa1b3;">)
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="stdout-effect"><code>stdout!:</code> <code class="type">Effect</code></h2>
+<p>Prints any value directly to <code>stdout</code>.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>val: </code><code class="type">Any</code></td><td>The value to print.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># print out each read&#39;s ID
+</span><span style="color:#8fa1b3;">stdout!(</span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">id</span><span style="color:#8fa1b3;">)
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="str-concat-str"><code>str_concat:</code> <code class="type">Str</code></h2>
+<p>Concatenates two strings.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s0: </code><code class="type">Str</code></td><td>The first string.</td>
+</tr>
+<tr>
+<td><code>s1: </code><code class="type">Str</code></td><td>The second string.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#bf616a;">s0 </span><span>= </span><span style="color:#a3be8c;">&#39;hello&#39;
+</span><span style="color:#bf616a;">s1 </span><span>= </span><span style="color:#a3be8c;">&#39;world&#39;
+</span><span>
+</span><span style="color:#65737e;"># all equivalent
+</span><span style="color:#bf616a;">a </span><span>= </span><span style="color:#8fa1b3;">str_concat(</span><span style="color:#bf616a;">s0</span><span>, </span><span style="color:#bf616a;">s1</span><span style="color:#8fa1b3;">)
+</span><span style="color:#bf616a;">b </span><span>= </span><span style="color:#a3be8c;">&#39;</span><span style="color:#96b5b4;">{</span><span style="color:#bf616a;">s0</span><span style="color:#96b5b4;">}{</span><span style="color:#bf616a;">s1</span><span style="color:#96b5b4;">}</span><span style="color:#a3be8c;">&#39;
+</span><span style="color:#bf616a;">c </span><span>= </span><span style="color:#a3be8c;">&#39;helloworld&#39;
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="supplementary-alignment-bool"><code>supplementary_alignment:</code> <code class="type">Bool</code></h2>
+<p>Checks whether a BAM/SAM flag indicates that a read is a supplementary alignment.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">flag</span><span>.</span><span style="color:#8fa1b3;">supplementary_alignment() </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;contained flag&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="tag-read"><code>tag: </code><code class="type">Read</code></h2>
+<p>Copies a read and appends a string to the end of its description line. A space is added.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>read: </code><code class="type">Read</code></td><td>The read to tag.</td>
+</tr>
+<tr>
+<td><code>tag: </code><code class="type">Str</code></td><td>The string to append to the read's description line.</td>
+</tr>
+<tr>
+<td><code><i>prefix</i>: </code><code class="type">Str</code><code> = ' '</code></td><td>A string inserted between the existing description line and the new tag.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># trim off the first 10 bases,
+</span><span style="color:#65737e;"># and tag the read with their sequence
+</span><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read </span><span style="color:#b48ead;">matches [</span><span style="color:#bf616a;">bc</span><span>:</span><span style="color:#d08770;">|10| </span><span style="color:#bf616a;">rest</span><span>:</span><span style="color:#d08770;">_</span><span style="color:#b48ead;">] =&gt;
+</span><span>    </span><span style="color:#bf616a;">rest</span><span>.</span><span style="color:#8fa1b3;">tag(</span><span style="color:#a3be8c;">&#39;barcode=</span><span style="color:#96b5b4;">{</span><span style="color:#bf616a;">bc</span><span>.</span><span style="color:#bf616a;">seq</span><span style="color:#96b5b4;">}</span><span style="color:#a3be8c;">&#39;</span><span style="color:#8fa1b3;">)
+</span><span>        .</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;out.fa&#39;</span><span style="color:#8fa1b3;">)
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="to-lower-str"><code>to_lower:</code> <code class="type">Str</code></h2>
+<p>Converts a string to lower-case. Non-alphabetic characters are unaffected.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s: </code><code class="type">Str</code></td><td>The string to convert to lower-case.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#bf616a;">quiet_hello </span><span>= </span><span style="color:#a3be8c;">&#39;HELLO&#39;</span><span>.</span><span style="color:#8fa1b3;">to_lower()
+</span></code></pre>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="to-num-num"><code>to_num:</code> <code class="type">Num</code></h2>
+<p>Parses a <code class="type">Str</code> into a <code class="type">Num</code>. When given a value that can't be parsed into a floating-point number, throws an error.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s: </code><code class="type">Str</code></td><td>The string to parse.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#a3be8c;">&#39;100&#39;</span><span>.</span><span style="color:#8fa1b3;">to_num()
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="to-str-str"><code>to_str:</code> <code class="type">Str</code></h2>
+<p>Converts any value to a <code class="type">Str</code>. Equivalent to formatting the value in a string literal (e.g. <code>'{val}'</code>).</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>v: </code><code class="type">Any</code></td><td>The value to convert.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># convert the length of the sequence (a Num) into a Str
+</span><span style="color:#bf616a;">length_str </span><span>= </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">seq</span><span>.</span><span style="color:#8fa1b3;">len()</span><span>.</span><span style="color:#8fa1b3;">to_str()
+</span><span style="color:#65737e;"># calculate the length of the Str
+</span><span style="color:#bf616a;">number_of_digits </span><span>= </span><span style="color:#bf616a;">length_str</span><span>.</span><span style="color:#8fa1b3;">len()
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="to-upper-str"><code>to_upper:</code> <code class="type">Str</code></h2>
+<p>Converts a string to upper-case. Non-alphabetic characters are unaffected.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>s: </code><code class="type">Str</code></td><td>The string to convert to upper-case.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#bf616a;">loud_hello </span><span>= </span><span style="color:#a3be8c;">&#39;hello&#39;</span><span>.</span><span style="color:#8fa1b3;">to_upper()
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="to-qscores-num"><code>to_qscores:</code> <code class="type">[Num]</code></h2>
+<p>Takes a string of <a href="https://en.wikipedia.org/wiki/Phred_quality_score">Phred quality scores</a> and converts each character to its corresponding quality score (0-40). When supplied with a character outside the expected range of Phred characters, throws an error.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>qual: </code><code class="type">Str</code></td><td>The quality string to convert.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#65737e;"># calculate the mean quality score in a read
+</span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">qual</span><span>.</span><span style="color:#8fa1b3;">to_qscores()</span><span>.</span><span style="color:#8fa1b3;">mean() </span><span>|&gt; </span><span style="color:#8fa1b3;">average!()
+</span></code></pre>
+</div>
+<hr />
+<div class="function_block">
+<h2 id="translate-str"><code>translate: </code><code class="type">Str</code></h2>
+<p>Translates a string from nucleotide to protein sequence. Naively assumes that you've given it a string representing a valid sequence of nucleotides. Stop codons are represented by a single character given by the <code>stop_codon</code> argument (by default, hyphen <code>-</code>). When the input string contains an invalid codon (i.e. when the input string contains   characters aside from <code>A</code>, <code>C</code>, <code>T</code> and <code>G</code>), this is represented by a single character given by the <code>illegal_codon</code> argument.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>seq: </code><code class="type">Str</code></td><td>The sequence to translate.</td>
+</tr>
+<tr>
+<td><code><i>stop_codon</i>: </code><code class="type">Str</code><code> = '-'</code></td><td>The character used to represent a stop codon.</td>
+</tr>
+<tr>
+<td><code><i>illegal_codon</i>: </code><code class="type">Str</code><code> = '?'</code></td><td>The character used to represent an attempt to translate a codon containing non-nucleotide characters.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#bf616a;">seq </span><span>= </span><span style="color:#d08770;">AGCCCTCCAGGACAGGCTGCATCAGAAGAG
+</span><span style="color:#65737e;"># will translate to SPPGQAASEE
+</span><span style="color:#bf616a;">prot </span><span>= </span><span style="color:#8fa1b3;">translate(</span><span style="color:#bf616a;">seq</span><span style="color:#8fa1b3;">)
+</span></code></pre>
+</div>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="tsv-record"><code>tsv:</code> <code class="type">[Record]</code></h2>
+<p>Opens a TSV and produces a list of records. The field names of each record correspond to the header names of the TSV, and the values correspond to the values found on each row. This processing occurs once, at the start of execution. The entire TSV is loaded into memory.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>filename: </code><code class="type">Str</code></td><td>The TSV file to open.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#bf616a;">primer </span><span>= </span><span style="color:#d08770;">AGCTAGTCGATGC
+</span><span style="color:#bf616a;">bcs </span><span>= </span><span style="color:#8fa1b3;">tsv(</span><span style="color:#a3be8c;">&#39;my_barcodes.tsv&#39;</span><span style="color:#8fa1b3;">)
+</span><span>
+</span><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read </span><span style="color:#b48ead;">matches [</span><span style="color:#d08770;">_ </span><span style="color:#bf616a;">primer bc</span><span>.</span><span style="color:#bf616a;">sequence </span><span style="color:#d08770;">_</span><span style="color:#b48ead;">] for </span><span style="color:#bf616a;">bc </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">bcs </span><span style="color:#b48ead;">=&gt;
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">tag(</span><span style="color:#a3be8c;">&#39;barcode=</span><span style="color:#96b5b4;">{</span><span style="color:#bf616a;">bc</span><span>.</span><span style="color:#bf616a;">barcode_name</span><span style="color:#96b5b4;">}</span><span style="color:#a3be8c;">&#39;</span><span style="color:#8fa1b3;">)
+</span><span>        .</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;demultiplexed.fq&#39;</span><span style="color:#8fa1b3;">)
+</span></code></pre>
+<br>
+<br>
+<hr />
+<div class="function_block">
+<h2 id="unmapped-bool"><code>unmapped:</code> <code class="type">Bool</code></h2>
+<p>Checks whether a BAM/SAM flag indicates that a read is unmapped.</p>
+<table style="margin-left: 0; width: 100%">
+<th style="width: 11em">Parameter</th>
+<th>Description</th>
+<tr>
+<td><code>flag: </code><code class="type">Num</code></td><td>SAM/BAM flag.</td>
+</tr>
+</table>
+<pre data-lang="matchbox" style="background-color:#2b303b;color:#c0c5ce;" class="language-matchbox "><code class="language-matchbox" data-lang="matchbox"><span style="color:#b48ead;">if </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#bf616a;">flag</span><span>.</span><span style="color:#8fa1b3;">unmapped() </span><span style="color:#96b5b4;">{
+</span><span>    </span><span style="font-weight:bold;color:#ebcb8b;">read</span><span>.</span><span style="color:#8fa1b3;">out!(</span><span style="color:#a3be8c;">&#39;contained flag&#39;</span><span style="color:#8fa1b3;">)
+</span><span style="color:#96b5b4;">}
+</span></code></pre>
+</div>
+<hr />
+
+ </section>
+
+    </div>
+  </body>
+</html>

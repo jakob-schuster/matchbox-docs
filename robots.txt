@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://jakob-schuster.github.io/matchbox-docs/sitemap.xml
