@@ -26,6 +26,7 @@
   <body>
     <div class="wrapper">
       <header>
+        <!-- site logo -->
         <a href="{{ get_url(path='/') | safe }}">
           <img
             src="{{ get_url(path='img/logo.png') | safe }}"
@@ -38,6 +39,7 @@
 
         <p>{{ config.description }}</p>
 
+        <!-- view on github -->
         <p class="view"
           ><a href="https://github.com/jakob-schuster/matchbox"
             >View the project on GitHub.
@@ -45,6 +47,7 @@
           ></p
         >
 
+        <!-- search bar -->
         <!-- <div>
           {%- if config.build_search_index %}
           {%- set icon_search=config.extra.icon_search | default(value="svgs svgm search") %}
@@ -60,7 +63,7 @@
           {%- endif %}
         </div> -->
 
-
+        <!-- navigation list -->
         <h2>Navigation</h2>
         <nav role="navigation">
           <ul>
@@ -91,35 +94,29 @@
                   {% endfor %}
               {% endblock menu %}
           </ul>
-      </nav>
-        <!-- <ul class="downloads">
-          <li
-            ><a href="./">Download <strong>ZIP File</strong></a></li
-          >
-          <li
-            ><a href="./">Download <strong>TAR Ball</strong></a></li
-          >
-          <li
-            ><a href="./">View On <strong>GitHub</strong></a></li
-          >
-        </ul> -->
-        
+        </nav>
+
+        <!-- spacer (to position the footer correctly) -->
+        <div id="spacer"></div>
+      
+        <!-- matchbox version number and zola -->
+        <footer>
+          <p>
+            <small>
+              <i>matchbox</i> official documentation v{{ config.extra.version }}. 
+              <br/>
+              Powered by <a href="https//www.getzola.org/">Zola</a> &mdash; Themed
+              with
+              <a href="https://github.com/semanticdata/zola-minimal/">Minimal</a
+              >.<br />
+            </small>
+          </p>
+        </footer>
       </header>
 
+      <!-- main page content -->
       <section> {% block content %} {% endblock content %} </section>
 
-      <footer>
-        <p>
-          <small>
-            <i>matchbox</i> official documentation v{{ config.extra.version }}. 
-            <br/>
-            Powered by <a href="https//www.getzola.org/">Zola</a> &mdash; Themed
-            with
-            <a href="https://github.com/semanticdata/zola-minimal/">Minimal</a
-            >.<br />
-          </small>
-        </p>
-      </footer>
     </div>
   </body>
 </html>

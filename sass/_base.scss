@@ -7,9 +7,11 @@
 
 header {
   width: 270px;
-  float: left;
+  height: 92%; // controls how far down the footer goes
   position: fixed;
-  -webkit-font-smoothing: subpixel-antialiased;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -23,6 +25,7 @@ body {
     sans-serif;
   color: #222;
   font-weight: 400;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -98,12 +101,8 @@ hr {
   margin: 0 0 20px;
 }
 
-footer {
-  width: 270px;
-  float: left;
-  position: fixed;
-  bottom: 50px;
-  -webkit-font-smoothing: subpixel-antialiased;
+#spacer {
+  flex: 1;
 }
 
 pre {
