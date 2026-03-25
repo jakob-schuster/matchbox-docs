@@ -45,7 +45,7 @@ if d and c {
 
 ## Numeric <code class="type">Num</code>
 
-A numeric value. Can be negative, can include a decimal component. Represented internally as a 32-bit floating point number.
+A numeric value. Can be negative, can include a decimal component. Represented internally as a 64-bit floating point number.
 
 ```matchbox
 a = 10000
